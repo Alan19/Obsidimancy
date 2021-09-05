@@ -11,7 +11,10 @@ public class GatherDataHandler {
     @SubscribeEvent
     public static void gatherData (final GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
-        generator.addProvider(new ItemModels(generator, Obsidimancy.MOD_ID, event.getExistingFileHelper()));
+        generator.addProvider(new ObsidimancyItemModels(generator, Obsidimancy.MOD_ID, event.getExistingFileHelper()));
         generator.addProvider(new EnglishLocalization(generator));
+        ObsidimancyBlockTags blockTags = new ObsidimancyBlockTags(generator, event.getExistingFileHelper());
+        generator.addProvider(blockTags);
+        generator.addProvider(new ObsidimancyItemTags(generator, blockTags, event.getExistingFileHelper()));
     }
 }

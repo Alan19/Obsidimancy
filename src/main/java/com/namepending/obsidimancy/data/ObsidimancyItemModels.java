@@ -11,10 +11,10 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.RegistryObject;
 
-public class ItemModels extends ItemModelProvider {
+public class ObsidimancyItemModels extends ItemModelProvider {
     private final ResourceLocation generatedItem = mcLoc("item/generated");
 
-    public ItemModels(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper) {
+    public ObsidimancyItemModels(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper) {
         super(generator, modid, existingFileHelper);
     }
 

@@ -23,6 +23,8 @@ public class ObsidimancyItems {
     };
 
     public static final RegistryObject<Item> OBSIDIAN_SHARD = ITEMS.register("obsidian_shard", () -> new Item(new Item.Properties().tab(ObsidimancyItems.TAB_OBSIDIMANCY)));
+    public static final RegistryObject<Item> WARRIOR_LANTERN = ITEMS.register("warriors_lantern", WarriorsLantern::new);
+    public static final RegistryObject<Item> SKYDIVERS_HOOD = ITEMS.register("skydivers_hood", SkydiversHood::new);
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);
