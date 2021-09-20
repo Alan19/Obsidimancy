@@ -1,10 +1,10 @@
 package com.namepending.obsidimancy.items;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.Rarity;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.*;
 
-public class SkydiversHood extends Item {
+public class SkydiversHood extends ArmorItem {
     public SkydiversHood() {
-        super(new Item.Properties().tab(ObsidimancyItems.TAB_OBSIDIMANCY).rarity(Rarity.UNCOMMON));
+        super(ArmorMaterial.LEATHER, EquipmentSlotType.HEAD, new Item.Properties().tab(ObsidimancyItems.TAB_OBSIDIMANCY).rarity(Rarity.UNCOMMON));
     }
 }

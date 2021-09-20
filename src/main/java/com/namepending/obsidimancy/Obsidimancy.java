@@ -1,6 +1,7 @@
 package com.namepending.obsidimancy;
 
 import com.namepending.obsidimancy.items.ObsidimancyItems;
+import com.namepending.obsidimancy.loot.ObsidimancyLootModifiers;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -40,6 +41,7 @@ public class Obsidimancy
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ObsidimancyItems.register(modEventBus);
+        ObsidimancyLootModifiers.register(modEventBus);
     }
 
     private void setup(final FMLCommonSetupEvent event)

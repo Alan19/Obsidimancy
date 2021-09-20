@@ -18,7 +18,5 @@ public class ObsidimancyItemTags extends ItemTagsProvider {
 
     @Override
     public void addTags() {
-        tag(ObsidimancyTags.CHARM).add(ObsidimancyItems.WARRIOR_LANTERN.get());
-        tag(ObsidimancyTags.BODY).add(ObsidimancyItems.SKYDIVERS_HOOD.get());
     }
 }

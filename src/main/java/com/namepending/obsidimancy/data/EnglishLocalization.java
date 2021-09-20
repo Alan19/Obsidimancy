@@ -15,7 +15,7 @@ public class EnglishLocalization extends LanguageProvider {
     protected void addTranslations() {
         add(ObsidimancyItems.OBSIDIAN_SHARD.get(), "Obsidian Shard");
         add(ObsidimancyItems.SKYDIVERS_HOOD.get(), "Skydiver's Hood");
-        add(ObsidimancyItems.WARRIOR_LANTERN.get(), "Warrior's Lantern");
+        add(ObsidimancyItems.PRECURSOR_PICKAXE.get(), "Precursor's Pickaxe");
         add(ObsidimancyItems.TAB_OBSIDIMANCY, "Obsidimancy");
     }
 

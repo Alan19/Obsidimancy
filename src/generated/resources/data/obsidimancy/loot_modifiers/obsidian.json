@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:match_tool",
+      "predicate": {
+        "item": "obsidimancy:precursor_pickaxe"
+      }
+    },
+    {
+      "condition": "minecraft:block_state_property",
+      "block": "minecraft:obsidian"
+    }
+  ],
+  "minCount": 2,
+  "maxCount": 4,
+  "obsidianItem": "minecraft:obsidian",
+  "obsidianShardItem": "obsidimancy:obsidian_shard",
+  "minFortuneBonus": 0,
+  "maxFortuneBonus": 1,
+  "type": "obsidimancy:obsidian_shards"
+}

@@ -16,5 +16,7 @@ public class GatherDataHandler {
         ObsidimancyBlockTags blockTags = new ObsidimancyBlockTags(generator, event.getExistingFileHelper());
         generator.addProvider(blockTags);
         generator.addProvider(new ObsidimancyItemTags(generator, blockTags, event.getExistingFileHelper()));
+        generator.addProvider(new ObsidimancyLootTables(generator));
+        generator.addProvider(new ObsidimancyGLMs(generator));
     }
 }
