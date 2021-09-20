@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:iron_pickaxe"
+  },
+  "addition": {
+    "item": "obsidimancy:obsidian_shard"
+  },
+  "result": {
+    "item": "obsidimancy:precursor_pickaxe"
+  }
+}

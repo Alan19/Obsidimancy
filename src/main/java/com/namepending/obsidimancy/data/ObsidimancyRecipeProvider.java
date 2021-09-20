@@ -2,6 +2,7 @@ package com.namepending.obsidimancy.data;
 
 import com.namepending.obsidimancy.Obsidimancy;
 import com.namepending.obsidimancy.items.ObsidimancyItems;
+import net.minecraft.advancements.criterion.CriterionInstance;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
@@ -20,6 +21,6 @@ public class ObsidimancyRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildShapelessRecipes(@Nonnull Consumer<IFinishedRecipe> consumer) {
-        SmithingRecipeBuilder.smithing(Ingredient.of(Items.IRON_PICKAXE), Ingredient.of(ObsidimancyItems.OBSIDIAN_SHARD.get()), ObsidimancyItems.PRECURSOR_PICKAXE.get()).save(consumer, new ResourceLocation(Obsidimancy.MOD_ID, "precursor_pickaxe"));
+        SmithingRecipeBuilder.smithing(Ingredient.of(Items.IRON_PICKAXE), Ingredient.of(ObsidimancyItems.OBSIDIAN_SHARD.get()), ObsidimancyItems.PRECURSOR_PICKAXE.get()).unlocks("has_obsidian_shard", has(ObsidimancyItems.OBSIDIAN_SHARD.get())).save(consumer, new ResourceLocation(Obsidimancy.MOD_ID, "precursor_pickaxe"));
     }
 }

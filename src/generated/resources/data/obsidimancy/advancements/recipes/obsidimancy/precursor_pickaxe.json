@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "obsidimancy:precursor_pickaxe"
+    ]
+  },
+  "criteria": {
+    "has_obsidian_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "obsidimancy:obsidian_shard"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "obsidimancy:precursor_pickaxe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_obsidian_shard",
+      "has_the_recipe"
+    ]
+  ]
+}
