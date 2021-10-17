@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WSW"
+  ],
+  "key": {
+    "S": {
+      "item": "obsidimancy:obsidian_shard"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "result": {
+    "item": "obsidimancy:skydivers_hood"
+  }
+}

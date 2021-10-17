@@ -15,6 +15,6 @@ public class SkydiversHood extends ArmorItem {
 
     // TODO Make this affected by configs
     public float getDamageMultiplier() {
-        return .1f;
+        return .85f;
     }
 }
