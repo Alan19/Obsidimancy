@@ -18,5 +18,6 @@ public class ObsidimancyItemTags extends ItemTagsProvider {
 
     @Override
     public void addTags() {
+//        tag(ObsidimancyTags.BODY).add(ObsidimancyItems.SKYDIVERS_HOOD.get());
     }
 }
