@@ -21,6 +21,7 @@ public class ObsidimancyItemModels extends ItemModelProvider {
     @Override
     protected void registerModels() {
         forItem(ObsidimancyItems.OBSIDIAN_SHARD);
+        forItem(ObsidimancyItems.PRECURSOR_PICKAXE);
     }
 
     private void forItem(RegistryObject<? extends Item> item) {
