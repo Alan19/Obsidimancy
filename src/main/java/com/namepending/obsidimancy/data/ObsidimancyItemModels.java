@@ -3,13 +3,13 @@ package com.namepending.obsidimancy.data;
 import com.namepending.obsidimancy.Obsidimancy;
 import com.namepending.obsidimancy.items.ObsidimancyItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ObsidimancyItemModels extends ItemModelProvider {
     private final ResourceLocation generatedItem = mcLoc("item/generated");
@@ -28,19 +28,19 @@ public class ObsidimancyItemModels extends ItemModelProvider {
         singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("item/" + item.getId().getPath()));
     }
 
-    private void forBlockItem(RegistryObject<? extends BlockNamedItem> item) {
+    private void forBlockItem(RegistryObject<? extends ItemNameBlockItem> item) {
         getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(new ResourceLocation(Obsidimancy.MOD_ID, "block/" + item.get().getBlock().getRegistryName().getPath())));
     }
 
-    private void forBlockItem(RegistryObject<? extends BlockNamedItem> item, ResourceLocation modelLocation) {
+    private void forBlockItem(RegistryObject<? extends ItemNameBlockItem> item, ResourceLocation modelLocation) {
         getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(modelLocation));
     }
 
-    private void forBlockItemWithParent(RegistryObject<? extends BlockNamedItem> item, ResourceLocation modelLocation) {
+    private void forBlockItemWithParent(RegistryObject<? extends ItemNameBlockItem> item, ResourceLocation modelLocation) {
         singleTexture(item.getId().getPath(), generatedItem, "layer0", modelLocation);
     }
 
-    private void forBlockItemWithParent(RegistryObject<? extends BlockNamedItem> item) {
+    private void forBlockItemWithParent(RegistryObject<? extends ItemNameBlockItem> item) {
         singleTexture(item.getId().getPath(), generatedItem, "layer0", modLoc("block/" + item.getId().getPath()));
     }
 

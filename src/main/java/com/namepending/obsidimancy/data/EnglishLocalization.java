@@ -3,7 +3,7 @@ package com.namepending.obsidimancy.data;
 import com.namepending.obsidimancy.Obsidimancy;
 import com.namepending.obsidimancy.items.ObsidimancyItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class EnglishLocalization extends LanguageProvider {
@@ -19,7 +19,7 @@ public class EnglishLocalization extends LanguageProvider {
         add(ObsidimancyItems.TAB_OBSIDIMANCY, "Obsidimancy");
     }
 
-    protected void add(ItemGroup key, String name) {
+    protected void add(CreativeModeTab key, String name) {
         add(key.getRecipeFolderName(), name);
     }
 }

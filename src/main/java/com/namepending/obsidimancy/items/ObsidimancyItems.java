@@ -1,19 +1,19 @@
 package com.namepending.obsidimancy.items;
 
 import com.namepending.obsidimancy.Obsidimancy;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nonnull;
 
 public class ObsidimancyItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Obsidimancy.MOD_ID);
-    public static final ItemGroup TAB_OBSIDIMANCY = new ItemGroup("obsidimancy") {
+    public static final CreativeModeTab TAB_OBSIDIMANCY = new CreativeModeTab("obsidimancy") {
         @Nonnull
         @Override
         public ItemStack makeIcon() {

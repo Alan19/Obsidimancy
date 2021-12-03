@@ -1,7 +1,7 @@
 package com.namepending.obsidimancy.data;
 
 import com.namepending.obsidimancy.Obsidimancy;
-import net.minecraft.data.BlockTagsProvider;
+import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
