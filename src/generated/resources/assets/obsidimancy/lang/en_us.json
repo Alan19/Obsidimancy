@@ -2,5 +2,5 @@
   "item.obsidimancy.obsidian_shard": "Obsidian Shard",
   "item.obsidimancy.precursor_pickaxe": "Precursor's Pickaxe",
   "item.obsidimancy.skydivers_hood": "Skydiver's Hood",
-  "obsidimancy": "Obsidimancy"
+  "itemGroup.obsidimancy": "Obsidimancy"
 }

@@ -20,6 +20,6 @@ public class EnglishLocalization extends LanguageProvider {
     }
 
     protected void add(CreativeModeTab key, String name) {
-        add(key.getRecipeFolderName(), name);
+        add("itemGroup.%s".formatted(key.getRecipeFolderName()), name);
     }
 }
