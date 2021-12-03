@@ -1,4 +1,4 @@
-package com.namepending.obsidimancy.tags;
+package com.pursuitofglowstone.obsidimancy.tags;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.tags.Tag;

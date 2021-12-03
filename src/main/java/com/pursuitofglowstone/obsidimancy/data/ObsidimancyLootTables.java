@@ -1,6 +1,5 @@
-package com.namepending.obsidimancy.data;
+package com.pursuitofglowstone.obsidimancy.data;
 
-import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;

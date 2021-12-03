@@ -1,7 +1,7 @@
-package com.namepending.obsidimancy.data;
+package com.pursuitofglowstone.obsidimancy.data;
 
-import com.namepending.obsidimancy.Obsidimancy;
-import com.namepending.obsidimancy.items.ObsidimancyItems;
+import com.pursuitofglowstone.obsidimancy.Obsidimancy;
+import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.data.LanguageProvider;

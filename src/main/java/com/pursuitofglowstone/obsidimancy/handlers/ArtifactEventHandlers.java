@@ -1,6 +1,6 @@
-package com.namepending.obsidimancy.handlers;
+package com.pursuitofglowstone.obsidimancy.handlers;
 
-import com.namepending.obsidimancy.items.SkydiversHood;
+import com.pursuitofglowstone.obsidimancy.items.SkydiversHood;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingFallEvent;

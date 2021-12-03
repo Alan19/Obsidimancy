@@ -1,4 +1,4 @@
-package com.namepending.obsidimancy.loot;
+package com.pursuitofglowstone.obsidimancy.loot;
 
 import com.google.gson.JsonObject;
 import net.minecraft.resources.ResourceLocation;

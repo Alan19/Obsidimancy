@@ -1,7 +1,7 @@
-package com.namepending.obsidimancy;
+package com.pursuitofglowstone.obsidimancy;
 
-import com.namepending.obsidimancy.items.ObsidimancyItems;
-import com.namepending.obsidimancy.loot.ObsidimancyLootModifiers;
+import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
+import com.pursuitofglowstone.obsidimancy.loot.ObsidimancyLootModifiers;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;

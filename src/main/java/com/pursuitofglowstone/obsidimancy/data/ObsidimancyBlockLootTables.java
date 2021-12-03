@@ -1,4 +1,4 @@
-package com.namepending.obsidimancy.data;
+package com.pursuitofglowstone.obsidimancy.data;
 
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.resources.ResourceLocation;

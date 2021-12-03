@@ -1,6 +1,6 @@
-package com.namepending.obsidimancy.items;
+package com.pursuitofglowstone.obsidimancy.items;
 
-import com.namepending.obsidimancy.Obsidimancy;
+import com.pursuitofglowstone.obsidimancy.Obsidimancy;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

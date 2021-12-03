@@ -1,8 +1,6 @@
-package com.namepending.obsidimancy.data;
+package com.pursuitofglowstone.obsidimancy.data;
 
-import com.namepending.obsidimancy.Obsidimancy;
-import com.namepending.obsidimancy.items.ObsidimancyItems;
-import com.namepending.obsidimancy.tags.ObsidimancyTags;
+import com.pursuitofglowstone.obsidimancy.Obsidimancy;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.ItemTagsProvider;

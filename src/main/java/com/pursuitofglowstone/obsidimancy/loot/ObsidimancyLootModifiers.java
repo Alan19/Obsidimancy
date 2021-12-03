@@ -1,6 +1,6 @@
-package com.namepending.obsidimancy.loot;
+package com.pursuitofglowstone.obsidimancy.loot;
 
-import com.namepending.obsidimancy.Obsidimancy;
+import com.pursuitofglowstone.obsidimancy.Obsidimancy;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

@@ -1,4 +1,4 @@
-package com.namepending.obsidimancy.items;
+package com.pursuitofglowstone.obsidimancy.items;
 
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;

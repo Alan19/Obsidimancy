@@ -1,4 +1,4 @@
-package com.namepending.obsidimancy.items;
+package com.pursuitofglowstone.obsidimancy.items;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;

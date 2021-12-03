@@ -1,9 +1,9 @@
-package com.namepending.obsidimancy.data;
+package com.pursuitofglowstone.obsidimancy.data;
 
-import com.namepending.obsidimancy.Obsidimancy;
-import com.namepending.obsidimancy.items.ObsidimancyItems;
-import com.namepending.obsidimancy.loot.ObsidianShardsModifier;
-import com.namepending.obsidimancy.loot.ObsidimancyLootModifiers;
+import com.pursuitofglowstone.obsidimancy.Obsidimancy;
+import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
+import com.pursuitofglowstone.obsidimancy.loot.ObsidianShardsModifier;
+import com.pursuitofglowstone.obsidimancy.loot.ObsidimancyLootModifiers;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.data.DataGenerator;

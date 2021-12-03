@@ -1,6 +1,6 @@
-package com.namepending.obsidimancy.data;
+package com.pursuitofglowstone.obsidimancy.data;
 
-import com.namepending.obsidimancy.Obsidimancy;
+import com.pursuitofglowstone.obsidimancy.Obsidimancy;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
