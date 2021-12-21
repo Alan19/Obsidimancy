@@ -1,6 +1,7 @@
 package com.pursuitofglowstone.obsidimancy.data;
 
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
+import com.pursuitofglowstone.obsidimancy.blocks.ObsidimancyBlocks;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.CreativeModeTab;
@@ -17,6 +18,11 @@ public class EnglishLocalization extends LanguageProvider {
         add(ObsidimancyItems.SKYDIVERS_HOOD.get(), "Skydiver's Hood");
         add(ObsidimancyItems.PRECURSOR_PICKAXE.get(), "Precursor's Pickaxe");
         add(ObsidimancyItems.TAB_OBSIDIMANCY, "Obsidimancy");
+        add(ObsidimancyItems.ATTUNEMENT_ALTAR.get(), "Attunement Altar");
+        add(ObsidimancyItems.OVERWORLD_SHARD.get(), "Overworld Shard");
+        add(ObsidimancyItems.NETHER_SHARD.get(), "Nether Shard");
+        add(ObsidimancyItems.ENDER_SHARD.get(), "Ender Shard");
+        add(ObsidimancyBlocks.ATTUNEMENT_ALTAR.get(), "Attunement Altar");
     }
 
     protected void add(CreativeModeTab key, String name) {

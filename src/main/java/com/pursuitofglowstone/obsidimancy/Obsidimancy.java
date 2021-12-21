@@ -1,5 +1,6 @@
 package com.pursuitofglowstone.obsidimancy;
 
+import com.pursuitofglowstone.obsidimancy.blocks.ObsidimancyBlocks;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
 import com.pursuitofglowstone.obsidimancy.loot.ObsidimancyLootModifiers;
 import net.minecraft.world.level.block.Blocks;
@@ -34,6 +35,7 @@ public class Obsidimancy
 
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        ObsidimancyBlocks.register(modEventBus);
         ObsidimancyItems.register(modEventBus);
         ObsidimancyLootModifiers.register(modEventBus);
     }
