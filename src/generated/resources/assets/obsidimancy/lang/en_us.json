@@ -1,7 +1,9 @@
 {
   "block.obsidimancy.attunement_altar": "Attunement Altar",
+  "block.obsidimancy.fragile_obsidian": "Fragile Obsidian",
   "item.obsidimancy.attunement_altar": "Attunement Altar",
   "item.obsidimancy.ender_shard": "Ender Shard",
+  "item.obsidimancy.fragile_obsidian": "Fragile Obsidian",
   "item.obsidimancy.nether_shard": "Nether Shard",
   "item.obsidimancy.obsidian_shard": "Obsidian Shard",
   "item.obsidimancy.overworld_shard": "Overworld Shard",

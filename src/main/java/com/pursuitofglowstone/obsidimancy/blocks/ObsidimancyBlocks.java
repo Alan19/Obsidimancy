@@ -11,6 +11,7 @@ public class ObsidimancyBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Obsidimancy.MOD_ID);
 
     public static final RegistryObject<Block> ATTUNEMENT_ALTAR = BLOCKS.register("attunement_altar", AttunementAltar::new);
+    public static final RegistryObject<Block> FRAGILE_OBSIDIAN = BLOCKS.register("fragile_obsidian", FragileObsidian::new);
 
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);

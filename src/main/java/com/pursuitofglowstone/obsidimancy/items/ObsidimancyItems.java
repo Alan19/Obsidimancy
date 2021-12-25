@@ -34,7 +34,8 @@ public class ObsidimancyItems {
     public static final RegistryObject<Item> ENDER_SHARD = ITEMS.register("ender_shard", ObsidimancyItems::createUncommonItem);
     public static final RegistryObject<Item> SKYDIVERS_HOOD = ITEMS.register("skydivers_hood", SkydiversHood::new);
     public static final RegistryObject<Item> PRECURSOR_PICKAXE = ITEMS.register("precursor_pickaxe", PrecursorPickaxe::new);
-    public static final RegistryObject<Item> ATTUNEMENT_ALTAR = ITEMS.register("attunement_altar", () -> generateItemBlock(ObsidimancyBlocks.ATTUNEMENT_ALTAR.get()));
+    public static final RegistryObject<ItemNameBlockItem> ATTUNEMENT_ALTAR = ITEMS.register("attunement_altar", () -> generateItemBlock(ObsidimancyBlocks.ATTUNEMENT_ALTAR.get()));
+    public static final RegistryObject<ItemNameBlockItem> FRAGILE_OBSIDIAN = ITEMS.register("fragile_obsidian", () -> generateItemBlock(ObsidimancyBlocks.FRAGILE_OBSIDIAN.get()));
 
     @NotNull
     private static Item createStandardItem() {
