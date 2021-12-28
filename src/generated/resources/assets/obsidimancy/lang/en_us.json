@@ -1,6 +1,13 @@
 {
+  "block.obsidimancy.attunement_altar": "Attunement Altar",
+  "block.obsidimancy.fragile_obsidian": "Fragile Obsidian",
+  "item.obsidimancy.attunement_altar": "Attunement Altar",
+  "item.obsidimancy.ender_shard": "Ender Shard",
+  "item.obsidimancy.fragile_obsidian": "Fragile Obsidian",
+  "item.obsidimancy.nether_shard": "Nether Shard",
   "item.obsidimancy.obsidian_shard": "Obsidian Shard",
+  "item.obsidimancy.overworld_shard": "Overworld Shard",
   "item.obsidimancy.precursor_pickaxe": "Precursor's Pickaxe",
   "item.obsidimancy.skydivers_hood": "Skydiver's Hood",
-  "obsidimancy": "Obsidimancy"
+  "itemGroup.obsidimancy": "Obsidimancy"
 }

@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "obsidimancy:obsidian_shard"
+            "items": [
+              "obsidimancy:obsidian_shard"
+            ]
           }
         ]
       }
