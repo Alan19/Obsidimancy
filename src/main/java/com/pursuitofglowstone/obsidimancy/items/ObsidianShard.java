@@ -1,6 +1,6 @@
 package com.pursuitofglowstone.obsidimancy.items;
 
-import net.minecraft.nbt.CompoundTag;
+import com.pursuitofglowstone.obsidimancy.blocks.AttunementAltar;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.Item;
@@ -22,9 +22,17 @@ public class ObsidianShard extends Item {
     @ParametersAreNonnullByDefault
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
-        final int overworldAttuneProgress = Optional.of(pStack.getOrCreateTag())
-                .map(compoundTag -> compoundTag.getInt("OverworldAttuneProgress"))
-                .orElse(0);
-        pTooltipComponents.add(new TranslatableComponent("obsidimancy.overworld_attunement_message", String.format("%.2f", (float) overworldAttuneProgress / 3 * 100)));
+        final Double overworldAttuneProgress = Optional.of(pStack.getOrCreateTag())
+                .map(compoundTag -> compoundTag.getDouble(AttunementAltar.OVERWORLD_ATTUNE_PROGRESS))
+                .orElse(0D);
+        final Double netherAttuneProgress = Optional.of(pStack.getOrCreateTag())
+                .map(compoundTag -> compoundTag.getDouble(AttunementAltar.NETHER_ATTUNE_PROGRESS))
+                .orElse(0D);
+        final Double endAttuneProgress = Optional.of(pStack.getOrCreateTag())
+                .map(compoundTag -> compoundTag.getDouble(AttunementAltar.END_ATTUNE_PROGRESS))
+                .orElse(0D);
+        pTooltipComponents.add(new TranslatableComponent("obsidimancy.overworld_attunement_message", String.format("%.2f", overworldAttuneProgress / 3 * 100)));
+        pTooltipComponents.add(new TranslatableComponent("obsidimancy.nether_attunement_message", String.format("%.2f", netherAttuneProgress / 3 * 100)));
+        pTooltipComponents.add(new TranslatableComponent("obsidimancy.end_attunement_message", String.format("%.2f", endAttuneProgress / 3 * 100)));
     }
 }
