@@ -25,6 +25,7 @@ public class EnglishLocalization extends LanguageProvider {
         add(ObsidimancyItems.FRAGILE_OBSIDIAN.get(), "Fragile Obsidian");
         add(ObsidimancyBlocks.ATTUNEMENT_ALTAR.get(), "Attunement Altar");
         add(ObsidimancyBlocks.FRAGILE_OBSIDIAN.get(), "Fragile Obsidian");
+        add("obsidimancy.overworld_attunement_message", "Overworld Attunement Progress: %s/100");
     }
 
     protected void add(CreativeModeTab key, String name) {

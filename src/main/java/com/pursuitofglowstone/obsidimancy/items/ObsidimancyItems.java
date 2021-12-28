@@ -28,7 +28,7 @@ public class ObsidimancyItems {
     }
 
 
-    public static final RegistryObject<Item> OBSIDIAN_SHARD = ITEMS.register("obsidian_shard", ObsidimancyItems::createStandardItem);
+    public static final RegistryObject<Item> OBSIDIAN_SHARD = ITEMS.register("obsidian_shard", ObsidianShard::new);
     public static final RegistryObject<Item> OVERWORLD_SHARD = ITEMS.register("overworld_shard", ObsidimancyItems::createUncommonItem);
     public static final RegistryObject<Item> NETHER_SHARD = ITEMS.register("nether_shard", ObsidimancyItems::createUncommonItem);
     public static final RegistryObject<Item> ENDER_SHARD = ITEMS.register("ender_shard", ObsidimancyItems::createUncommonItem);
