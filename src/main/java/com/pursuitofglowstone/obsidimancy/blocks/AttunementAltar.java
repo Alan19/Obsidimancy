@@ -87,7 +87,7 @@ public class AttunementAltar extends Block {
             }
             default -> throw new IllegalArgumentException();
         }
-        final double newProgress = attuneProgress + (1D / stack.getCount());
+        final double newProgress = attuneProgress + 1;
         if (newProgress > 2) {
             return new ItemStack(resultItem, stack.getCount());
         }

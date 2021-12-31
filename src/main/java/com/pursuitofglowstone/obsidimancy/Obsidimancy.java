@@ -3,8 +3,10 @@ package com.pursuitofglowstone.obsidimancy;
 import com.pursuitofglowstone.obsidimancy.blocks.ObsidimancyBlocks;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
 import com.pursuitofglowstone.obsidimancy.loot.ObsidimancyLootModifiers;
-import net.minecraft.world.level.block.Blocks;
+import com.pursuitofglowstone.obsidimancy.structures.ObsidimancyConfiguredStructures;
+import com.pursuitofglowstone.obsidimancy.structures.ObsidimancyStructures;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -21,27 +23,31 @@ import top.theillusivec4.curios.api.SlotTypeMessage;
 public class Obsidimancy
 {
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "obsidimancy";
 
     public Obsidimancy() {
-        // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        //Register IMC event for registering curios
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::registerCurios);
 
-        // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ObsidimancyBlocks.register(modEventBus);
         ObsidimancyItems.register(modEventBus);
         ObsidimancyLootModifiers.register(modEventBus);
+        ObsidimancyStructures.STRUCTURE_FEATURES.register(modEventBus);
+
+        // TODO Switch to annotations
+        IEventBus forgeBus = MinecraftForge.EVENT_BUS;
+        forgeBus.addListener(EventPriority.NORMAL, ObsidimancyConfiguredStructures::addDimensionalSpacing);
     }
 
-    private void setup(final FMLCommonSetupEvent event)
-    {
+    private void setup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            ObsidimancyStructures.setupStructures();
+            ObsidimancyConfiguredStructures.registerConfiguredStructures();
+        });
     }
 
     private void registerCurios(final InterModEnqueueEvent event) {
