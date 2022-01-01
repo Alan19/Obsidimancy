@@ -19,5 +19,6 @@ public class GatherDataHandler {
         generator.addProvider(new ObsidimancyLootTables(generator));
         generator.addProvider(new ObsidimancyGLMs(generator));
         generator.addProvider(new ObsidimancyRecipeProvider(generator));
+        generator.addProvider(new EnglishBookProvider(generator));
     }
 }

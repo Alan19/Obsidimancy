@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.pursuitofglowstone.obsidimancy.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "obsidimancy.refmap.json",
+  "mixins": [
+    "FallDamageMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.0.1"
+}
