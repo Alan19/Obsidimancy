@@ -1,7 +1,6 @@
 package com.pursuitofglowstone.obsidimancy.data;
 
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
-import com.pursuitofglowstone.obsidimancy.blocks.ObsidimancyBlocks;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -26,6 +25,7 @@ public class ObsidimancyItemModels extends ItemModelProvider {
         forItem(ObsidimancyItems.NETHER_SHARD);
         forItem(ObsidimancyItems.ENDER_SHARD);
         forItem(ObsidimancyItems.PRECURSOR_PICKAXE);
+        forItem(ObsidimancyItems.SKYDIVERS_HOOD);
         forBlockItem(ObsidimancyItems.ATTUNEMENT_ALTAR);
         forBlockItem(ObsidimancyItems.FRAGILE_OBSIDIAN);
     }

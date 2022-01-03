@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "obsidimancy:nether_skydivers_hood"
+    ]
+  },
+  "criteria": {
+    "has_nether_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "obsidimancy:nether_shard"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "obsidimancy:nether_skydivers_hood"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_nether_shard",
+      "has_the_recipe"
+    ]
+  ]
+}

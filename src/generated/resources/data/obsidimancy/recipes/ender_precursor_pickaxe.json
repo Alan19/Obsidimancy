@@ -4,9 +4,9 @@
     "item": "obsidimancy:precursor_pickaxe"
   },
   "addition": {
-    "item": "obsidimancy:overworld_shard"
+    "item": "obsidimancy:ender_shard"
   },
   "result": {
-    "item": "obsidimancy:overworld_precursor_pickaxe"
+    "item": "obsidimancy:ender_precursor_pickaxe"
   }
 }

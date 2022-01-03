@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "obsidimancy:ender_skydivers_hood"
+    ]
+  },
+  "criteria": {
+    "has_ender_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "obsidimancy:ender_shard"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "obsidimancy:ender_skydivers_hood"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ender_shard",
+      "has_the_recipe"
+    ]
+  ]
+}

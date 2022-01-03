@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "obsidimancy:skydivers_hood"
+  },
+  "addition": {
+    "item": "obsidimancy:ender_shard"
+  },
+  "result": {
+    "item": "obsidimancy:ender_skydivers_hood"
+  }
+}

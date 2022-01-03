@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "obsidimancy:ender_precursor_pickaxe"
+    ]
+  },
+  "criteria": {
+    "has_ender_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "obsidimancy:ender_shard"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "obsidimancy:ender_precursor_pickaxe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ender_shard",
+      "has_the_recipe"
+    ]
+  ]
+}
