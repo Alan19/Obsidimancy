@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "obsidimancy:skydivers_hood"
+  },
+  "addition": {
+    "item": "obsidimancy:overworld_shard"
+  },
+  "result": {
+    "item": "obsidimancy:overworld_precursor_pickaxe"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "obsidimancy:overworld_precursor_pickaxe"
+    ]
+  },
+  "criteria": {
+    "has_overworld_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "obsidimancy:overworld_shard"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "obsidimancy:overworld_precursor_pickaxe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_overworld_shard",
+      "has_the_recipe"
+    ]
+  ]
+}

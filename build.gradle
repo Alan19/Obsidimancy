@@ -108,7 +108,6 @@ dependencies {
     compileClasspath fg.deobf("top.theillusivec4.curios:curios-forge:1.18-5.0.2.2")
     implementation fg.deobf("curse.maven:shutup-experimental-settings-407174:3544525")
     compileClasspath fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
-    compileClasspath fg.deobf("xyz.brassgoggledcoders:PatchouliProvider:1.18.1-1.0.5-Snapshot.1")
 }
 
 jar {

@@ -3,9 +3,7 @@
     {
       "condition": "minecraft:match_tool",
       "predicate": {
-        "items": [
-          "obsidimancy:precursor_pickaxe"
-        ]
+        "tag": "obsidimancy:precursor_pickaxes"
       }
     },
     {

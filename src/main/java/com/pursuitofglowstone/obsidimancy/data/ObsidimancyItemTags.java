@@ -1,8 +1,10 @@
 package com.pursuitofglowstone.obsidimancy.data;
 
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
-import net.minecraft.data.tags.BlockTagsProvider;
+import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
+import com.pursuitofglowstone.obsidimancy.tags.ObsidimancyTags;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -16,6 +18,6 @@ public class ObsidimancyItemTags extends ItemTagsProvider {
 
     @Override
     public void addTags() {
-//        tag(ObsidimancyTags.BODY).add(ObsidimancyItems.SKYDIVERS_HOOD.get());
+        tag(ObsidimancyTags.PRECURSOR_PICKAXES).add(ObsidimancyItems.PRECURSOR_PICKAXE.get(), ObsidimancyItems.NETHER_PRECURSOR_PICKAXE.get(), ObsidimancyItems.ENDER_PRECURSOR_PICKAXE.get());
     }
 }

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "obsidimancy:precursor_pickaxe",
+    "obsidimancy:nether_precursor_pickaxe",
+    "obsidimancy:ender_precursor_pickaxe"
+  ]
+}

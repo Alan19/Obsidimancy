@@ -11,6 +11,8 @@ public class ObsidimancyLootModifiers {
     private static final DeferredRegister<GlobalLootModifierSerializer<?>> GLM = DeferredRegister.create(ForgeRegistries.LOOT_MODIFIER_SERIALIZERS, Obsidimancy.MOD_ID);
 
     public static final RegistryObject<ObsidianShardsModifier.Serializer> OBSIDIAN_SHARDS = GLM.register("obsidian_shards", ObsidianShardsModifier.Serializer::new);
+    public static final RegistryObject<AutoSmeltModifier.Serializer> SMELTING = GLM.register("smelting", AutoSmeltModifier.Serializer::new);
+    public static final RegistryObject<SilkTouchModifier.Serializer> SILK_TOUCH = GLM.register("ender_pickaxe_silk_touch", SilkTouchModifier.Serializer::new);
 
     public static void register(IEventBus bus) {
         GLM.register(bus);
