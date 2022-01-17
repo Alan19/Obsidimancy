@@ -16,7 +16,8 @@
   "item.obsidimancy.precursor_pickaxe": "Precursor's Pickaxe",
   "item.obsidimancy.skydivers_hood": "Skydiver's Hood",
   "itemGroup.obsidimancy": "Obsidimancy",
-  "obsidimancy.end_attunement_message": "End Attunement Progress: %s/100",
-  "obsidimancy.nether_attunement_message": "Nether Attunement Progress: %s/100",
-  "obsidimancy.overworld_attunement_message": "Overworld Attunement Progress: %s/100"
+  "obsidimancy.end_attunement_message": "End Attunement Progress: %s",
+  "obsidimancy.inherent_enchantment": "This item has the effect of these enchantments, but can still be enchanted with other enchantments!",
+  "obsidimancy.nether_attunement_message": "Nether Attunement Progress: %s",
+  "obsidimancy.overworld_attunement_message": "Overworld Attunement Progress: %s"
 }

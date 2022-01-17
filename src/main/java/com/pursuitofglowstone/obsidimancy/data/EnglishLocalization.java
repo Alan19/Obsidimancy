@@ -17,9 +17,10 @@ public class EnglishLocalization extends LanguageProvider {
         addItems();
         add(ObsidimancyBlocks.ATTUNEMENT_ALTAR.get(), "Attunement Altar");
         add(ObsidimancyBlocks.FRAGILE_OBSIDIAN.get(), "Fragile Obsidian");
-        add("obsidimancy.overworld_attunement_message", "Overworld Attunement Progress: %s/100");
-        add("obsidimancy.nether_attunement_message", "Nether Attunement Progress: %s/100");
-        add("obsidimancy.end_attunement_message", "End Attunement Progress: %s/100");
+        add("obsidimancy.overworld_attunement_message", "Overworld Attunement Progress: %s");
+        add("obsidimancy.nether_attunement_message", "Nether Attunement Progress: %s");
+        add("obsidimancy.end_attunement_message", "End Attunement Progress: %s");
+        add("obsidimancy.inherent_enchantment", "This item has the effect of these enchantments, but can still be enchanted with other enchantments!");
     }
 
     private void addItems() {
