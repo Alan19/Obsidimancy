@@ -2,7 +2,10 @@ package com.pursuitofglowstone.obsidimancy.items.precursorpickaxe;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
+
+import java.util.Map;
 
 public class EndPrecursorPickaxe extends AttunedPrecursorPickaxe {
 
@@ -21,15 +24,19 @@ public class EndPrecursorPickaxe extends AttunedPrecursorPickaxe {
         return 0;
     }
 
-    // TODO Add a GLM to make this drop stuff properly
     @Override
     public int getSilkTouch() {
         return 1;
     }
 
-    // TODO Check if this restriction applies to enchanted books
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
         return enchantment != Enchantments.BLOCK_FORTUNE && enchantment != Enchantments.SILK_TOUCH && super.canApplyAtEnchantingTable(stack, enchantment);
+    }
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        final Map<Enchantment, Integer> enchantments = EnchantmentHelper.getEnchantments(book);
+        return !enchantments.containsKey(Enchantments.SILK_TOUCH) && !enchantments.containsKey(Enchantments.BLOCK_FORTUNE) && super.isBookEnchantable(stack, book);
     }
 }
