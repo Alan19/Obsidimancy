@@ -10,6 +10,8 @@ import com.pursuitofglowstone.obsidimancy.items.skydivershood.EnderSkydiversHood
 import com.pursuitofglowstone.obsidimancy.items.skydivershood.NetherSkydiversHood;
 import com.pursuitofglowstone.obsidimancy.items.skydivershood.OverworldSkydiversHood;
 import com.pursuitofglowstone.obsidimancy.items.skydivershood.SkydiversHood;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Style;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -23,6 +25,7 @@ import javax.annotation.Nonnull;
 public class ObsidimancyItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Obsidimancy.MOD_ID);
     public static final CreativeModeTab TAB_OBSIDIMANCY = getCreativeModeTab();
+    public static final Style INHERENT_ENCHANT_STYLE = Style.EMPTY.withColor(ChatFormatting.GRAY).withItalic(true);
 
     @NotNull
     private static CreativeModeTab getCreativeModeTab() {
