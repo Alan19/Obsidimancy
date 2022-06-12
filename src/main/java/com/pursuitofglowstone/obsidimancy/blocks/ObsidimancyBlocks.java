@@ -12,6 +12,7 @@ public class ObsidimancyBlocks {
 
     public static final RegistryObject<Block> ATTUNEMENT_ALTAR = BLOCKS.register("attunement_altar", AttunementAltar::new);
     public static final RegistryObject<Block> FRAGILE_OBSIDIAN = BLOCKS.register("fragile_obsidian", FragileObsidian::new);
+    public static final RegistryObject<Block> BRIGHT_FRAGMENT = BLOCKS.register("bright_fragment", BrightFragment::new);
 
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);
