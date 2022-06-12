@@ -3,14 +3,11 @@ package com.pursuitofglowstone.obsidimancy;
 import com.pursuitofglowstone.obsidimancy.blocks.ObsidimancyBlocks;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
 import com.pursuitofglowstone.obsidimancy.loot.ObsidimancyLootModifiers;
-import com.pursuitofglowstone.obsidimancy.structures.ObsidimancyConfiguredStructures;
 import com.pursuitofglowstone.obsidimancy.structures.ObsidimancyStructures;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
@@ -27,7 +24,6 @@ public class Obsidimancy
     public static final String MOD_ID = "obsidimancy";
 
     public Obsidimancy() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::registerCurios);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -37,17 +33,6 @@ public class Obsidimancy
         ObsidimancyItems.register(modEventBus);
         ObsidimancyLootModifiers.register(modEventBus);
         ObsidimancyStructures.STRUCTURE_FEATURES.register(modEventBus);
-
-        // TODO Switch to annotations
-        IEventBus forgeBus = MinecraftForge.EVENT_BUS;
-        forgeBus.addListener(EventPriority.NORMAL, ObsidimancyConfiguredStructures::addDimensionalSpacing);
-    }
-
-    private void setup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            ObsidimancyStructures.setupStructures();
-            ObsidimancyConfiguredStructures.registerConfiguredStructures();
-        });
     }
 
     private void registerCurios(final InterModEnqueueEvent event) {

@@ -1,6 +1,7 @@
 package com.pursuitofglowstone.obsidimancy.structures;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
+import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.PostPlacementProcessor;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
@@ -23,11 +25,21 @@ import java.util.Optional;
 
 public class AltarRuinsStructure extends StructureFeature<JigsawConfiguration> {
 
-    public AltarRuinsStructure(Codec<JigsawConfiguration> codec) {
-        super(codec, AltarRuinsStructure::createPiecesGenerator, PostPlacementProcessor.NONE);
+    public static final Codec<JigsawConfiguration> CODEC = RecordCodecBuilder.create(codec -> codec.group(
+            StructureTemplatePool.CODEC
+                    .fieldOf("start_pool")
+                    .forGetter(JigsawConfiguration::startPool),
+            Codec.intRange(0, 30)
+                    .fieldOf("size")
+                    .forGetter(JigsawConfiguration::maxDepth)
+    ).apply(codec, JigsawConfiguration::new));
+
+    public AltarRuinsStructure() {
+        super(CODEC, AltarRuinsStructure::createPiecesGenerator, PostPlacementProcessor.NONE);
     }
 
     private static boolean isFeatureChunk(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
+        // Checks if the top block isn't a fluid?
         BlockPos blockPos = context.chunkPos().getWorldPosition();
         int landHeight = context.chunkGenerator().getFirstOccupiedHeight(blockPos.getX(), blockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
         NoiseColumn columnOfBlocks = context.chunkGenerator().getBaseColumn(blockPos.getX(), blockPos.getZ(), context.heightAccessor());
@@ -55,7 +67,7 @@ public class AltarRuinsStructure extends StructureFeature<JigsawConfiguration> {
         Optional<PieceGenerator<JigsawConfiguration>> structurePiecesGenerator = JigsawPlacement.addPieces(newContext, PoolElementStructurePiece::new, blockpos, false, true);
 
         if (structurePiecesGenerator.isPresent()) {
-            Obsidimancy.LOGGER.log(Level.DEBUG, "Altar Ruins at %s".formatted(blockpos));
+            Obsidimancy.LOGGER.log(Level.DEBUG, "Altar Ruins at {}", blockpos);
         }
         return structurePiecesGenerator;
     }
