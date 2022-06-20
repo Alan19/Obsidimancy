@@ -25,7 +25,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '0.0.1'
+version = '0.1.0'
 group = 'com.pursuitofglowstone.obsidimancy'
 archivesBaseName = 'obsidimancy'
 
