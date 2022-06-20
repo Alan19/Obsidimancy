@@ -40,7 +40,7 @@ public class AttunementAltar extends Block {
         final AABB transmuteBounds = AABB.ofSize(new Vec3(pPos.getX(), pPos.getY(), pPos.getZ()), 9, 3, 9);
         for (ItemEntity itemEntity : pLevel.getEntitiesOfClass(ItemEntity.class, transmuteBounds, OBSIDIAN_SHARD)) {
             itemEntity.setExtendedLifetime();
-            itemEntity.setItem(attuneShard(itemEntity.getItem(), pLevel.getBiome(pPos).getPrecipitation()));
+            itemEntity.setItem(attuneShard(itemEntity.getItem(), pLevel.getBiome(pPos).value().getPrecipitation()));
             pLevel.sendParticles(ParticleTypes.ENCHANT, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 20, .3D, .3D, .3D, 0D);
             itemEntity.playSound(SoundEvents.ENCHANTMENT_TABLE_USE, 1F, 1F);
         }

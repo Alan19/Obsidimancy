@@ -8,7 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ObsidimancyLootModifiers {
-    private static final DeferredRegister<GlobalLootModifierSerializer<?>> GLM = DeferredRegister.create(ForgeRegistries.LOOT_MODIFIER_SERIALIZERS, Obsidimancy.MOD_ID);
+    private static final DeferredRegister<GlobalLootModifierSerializer<?>> GLM = DeferredRegister.create(ForgeRegistries.Keys.LOOT_MODIFIER_SERIALIZERS, Obsidimancy.MOD_ID);
 
     public static final RegistryObject<ObsidianShardsModifier.Serializer> OBSIDIAN_SHARDS = GLM.register("obsidian_shards", ObsidianShardsModifier.Serializer::new);
     public static final RegistryObject<AutoSmeltModifier.Serializer> SMELTING = GLM.register("smelting", AutoSmeltModifier.Serializer::new);

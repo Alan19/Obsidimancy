@@ -34,7 +34,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 minecraft {
-    mappings channel: 'parchment', version: '2021.12.19-1.18.1'
+    mappings channel: 'parchment', version: '2022.06.05-1.18.2'
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -100,11 +100,6 @@ repositories {
         url "https://dvs1.progwml6.com/files/maven"
     }
     maven {
-        name "brassgoggledcoders"
-        url "https://maven.teamacronymcoders.com/"
-    }
-    //Gradle
-    maven {
         url = "https://maven.theillusivec4.top/"
     }
     maven {
@@ -118,9 +113,13 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    compileClasspath fg.deobf("top.theillusivec4.curios:curios-forge:1.18-5.0.2.2")
-    implementation fg.deobf("curse.maven:shutup-experimental-settings-407174:3544525")
+    compileClasspath fg.deobf("top.theillusivec4.curios:curios-forge:1.18.2-5.0.7.0")
+    implementation fg.deobf("curse.maven:shutup-experimental-settings-407174:3759881")
     compileClasspath fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+}
+
+project.afterEvaluate {
+    minecraft.runs.data.args('--existing', configurations.minecraft.asPath.split(":").toList().find { it.contains("forge") }.split(";")[0])
 }
 
 jar {
