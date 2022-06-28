@@ -26,7 +26,7 @@ public class ObsidimancyGLMs extends GlobalLootModifierProvider {
     @Override
     protected void start() {
         add("obsidian", ObsidimancyLootModifiers.OBSIDIAN_SHARDS.get(), new ObsidianShardsModifier(new LootItemCondition[]{
-                MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(ObsidimancyEnchantments.SHATTERING.get(), MinMaxBounds.Ints.exactly(1)))).build(),
+                MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(ObsidimancyEnchantments.SHATTERING.get(), MinMaxBounds.Ints.ANY))).build(),
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.OBSIDIAN).build()
         }, 2, 4, Items.OBSIDIAN, ObsidimancyItems.OBSIDIAN_SHARD.get(), 0, 1));
 

@@ -5,8 +5,7 @@
       "predicate": {
         "enchantments": [
           {
-            "enchantment": "obsidimancy:shattering",
-            "levels": 1
+            "enchantment": "obsidimancy:shattering"
           }
         ]
       }

@@ -11,6 +11,11 @@ public class ShatteringEnchantment extends Enchantment {
     }
 
     @Override
+    public int getMaxLevel() {
+        return 3;
+    }
+
+    @Override
     public boolean canEnchant(ItemStack pStack) {
         return pStack.getItem() instanceof net.minecraft.world.item.ShearsItem || super.canEnchant(pStack);
     }
