@@ -2,6 +2,7 @@ package com.pursuitofglowstone.obsidimancy.items.precursorpickaxe;
 
 import com.pursuitofglowstone.obsidimancy.items.IInherentlyEnchantedItem;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
+import com.pursuitofglowstone.obsidimancy.items.enchantment.ObsidimancyEnchantments;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -33,6 +34,7 @@ public abstract class AbstractPrecursorPickaxe extends PickaxeItem implements II
         enchantments.put(Enchantments.BLOCK_FORTUNE, getFortune());
         enchantments.put(Enchantments.BLOCK_EFFICIENCY, getEfficiency());
         enchantments.put(Enchantments.SILK_TOUCH, getSilkTouch());
+        enchantments.put(ObsidimancyEnchantments.SHATTERING.get(), 1);
         return enchantments;
     }
 

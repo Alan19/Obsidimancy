@@ -3,6 +3,7 @@ package com.pursuitofglowstone.obsidimancy.data;
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
 import com.pursuitofglowstone.obsidimancy.blocks.ObsidimancyBlocks;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
+import com.pursuitofglowstone.obsidimancy.items.enchantment.ObsidimancyEnchantments;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -43,5 +44,6 @@ public class EnglishLocalization extends LanguageProvider {
 
     protected void add(CreativeModeTab key, String name) {
         add("itemGroup.%s".formatted(key.getRecipeFolderName()), name);
+        add(ObsidimancyEnchantments.SHATTERING.get(), "Shattering");
     }
 }

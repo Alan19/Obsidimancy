@@ -3,7 +3,12 @@
     {
       "condition": "minecraft:match_tool",
       "predicate": {
-        "tag": "obsidimancy:precursor_pickaxes"
+        "enchantments": [
+          {
+            "enchantment": "obsidimancy:shattering",
+            "levels": 1
+          }
+        ]
       }
     },
     {

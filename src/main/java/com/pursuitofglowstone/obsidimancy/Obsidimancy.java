@@ -2,6 +2,7 @@ package com.pursuitofglowstone.obsidimancy;
 
 import com.pursuitofglowstone.obsidimancy.blocks.ObsidimancyBlocks;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
+import com.pursuitofglowstone.obsidimancy.items.enchantment.ObsidimancyEnchantments;
 import com.pursuitofglowstone.obsidimancy.loot.ObsidimancyLootModifiers;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -31,6 +32,7 @@ public class Obsidimancy
         ObsidimancyBlocks.register(modEventBus);
         ObsidimancyItems.register(modEventBus);
         ObsidimancyLootModifiers.register(modEventBus);
+        ObsidimancyEnchantments.register(modEventBus);
     }
 
     private void registerCurios(final InterModEnqueueEvent event) {

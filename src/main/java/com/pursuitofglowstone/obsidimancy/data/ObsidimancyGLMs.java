@@ -2,12 +2,14 @@ package com.pursuitofglowstone.obsidimancy.data;
 
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
+import com.pursuitofglowstone.obsidimancy.items.enchantment.ObsidimancyEnchantments;
 import com.pursuitofglowstone.obsidimancy.loot.AutoSmeltModifier;
 import com.pursuitofglowstone.obsidimancy.loot.ObsidianShardsModifier;
 import com.pursuitofglowstone.obsidimancy.loot.ObsidimancyLootModifiers;
 import com.pursuitofglowstone.obsidimancy.loot.SilkTouchModifier;
-import com.pursuitofglowstone.obsidimancy.tags.ObsidimancyTags;
+import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
@@ -24,7 +26,7 @@ public class ObsidimancyGLMs extends GlobalLootModifierProvider {
     @Override
     protected void start() {
         add("obsidian", ObsidimancyLootModifiers.OBSIDIAN_SHARDS.get(), new ObsidianShardsModifier(new LootItemCondition[]{
-                MatchTool.toolMatches(ItemPredicate.Builder.item().of(ObsidimancyTags.PRECURSOR_PICKAXES)).build(),
+                MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(ObsidimancyEnchantments.SHATTERING.get(), MinMaxBounds.Ints.exactly(1)))).build(),
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.OBSIDIAN).build()
         }, 2, 4, Items.OBSIDIAN, ObsidimancyItems.OBSIDIAN_SHARD.get(), 0, 1));
 
