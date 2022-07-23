@@ -11,4 +11,5 @@ public class ObsidimancyTags {
     public static final TagKey<Item> BODY = ItemTags.create(new ResourceLocation(CuriosApi.MODID, "body"));
     public static final TagKey<Item> CHARM = ItemTags.create(new ResourceLocation(CuriosApi.MODID, "charm"));
     public static final TagKey<Item> PRECURSOR_PICKAXES = ItemTags.create(new ResourceLocation(Obsidimancy.MOD_ID, "precursor_pickaxes"));
+    public static final TagKey<Item> OBSIDIAN_SHARDS = ItemTags.create(new ResourceLocation(Obsidimancy.MOD_ID, "obsidian_shards"));
 }

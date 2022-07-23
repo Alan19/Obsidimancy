@@ -21,5 +21,6 @@
   "obsidianShardItem": "obsidimancy:obsidian_shard",
   "minFortuneBonus": 0,
   "maxFortuneBonus": 1,
+  "upperLimit": 4,
   "type": "obsidimancy:obsidian_shards"
 }

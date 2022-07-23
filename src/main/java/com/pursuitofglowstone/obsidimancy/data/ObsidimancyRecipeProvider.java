@@ -1,6 +1,7 @@
 package com.pursuitofglowstone.obsidimancy.data;
 
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
+import com.pursuitofglowstone.obsidimancy.tags.ObsidimancyTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -8,6 +9,7 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.UpgradeRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -19,20 +21,20 @@ import java.util.function.Consumer;
 import static com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems.*;
 
 public class ObsidimancyRecipeProvider extends RecipeProvider {
-    public ObsidimancyRecipeProvider(DataGenerator p_i48262_1_) {
-        super(p_i48262_1_);
+    public ObsidimancyRecipeProvider(DataGenerator generator) {
+        super(generator);
     }
 
     @Override
     protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
-        saveUpgradeRecipe(Items.IRON_PICKAXE, Ingredient.of(OBSIDIAN_SHARD.get()), PRECURSOR_PICKAXE.get(), OBSIDIAN_SHARD.get(), consumer);
+        saveUpgradeRecipe(Items.IRON_PICKAXE, Ingredient.of(ObsidimancyTags.OBSIDIAN_SHARDS), PRECURSOR_PICKAXE.get(), ObsidimancyTags.OBSIDIAN_SHARDS, consumer);
         saveUpgradeGroup(consumer, SKYDIVERS_HOOD.get(), OVERWORLD_SKYDIVERS_HOOD.get(), NETHER_SKYDIVERS_HOOD.get(), ENDER_SKYDIVERS_HOOD.get());
         saveUpgradeGroup(consumer, PRECURSOR_PICKAXE.get(), OVERWORLD_PRECURSOR_PICKAXE.get(), NETHER_PRECURSOR_PICKAXE.get(), ENDER_PRECURSOR_PICKAXE.get());
-        ShapedRecipeBuilder.shaped(SKYDIVERS_HOOD.get()).define('S', OBSIDIAN_SHARD.get())
+        ShapedRecipeBuilder.shaped(SKYDIVERS_HOOD.get()).define('S', ObsidimancyTags.OBSIDIAN_SHARDS)
                 .define('W', ItemTags.WOOL)
                 .pattern("WWW")
                 .pattern("WSW")
-                .unlockedBy("has_obsidian_shard", has(OBSIDIAN_SHARD.get()))
+                .unlockedBy("has_obsidian_shard", has(ObsidimancyTags.OBSIDIAN_SHARDS))
                 .save(consumer, new ResourceLocation(Obsidimancy.MOD_ID, "skydivers_hood"));
     }
 
@@ -42,8 +44,14 @@ public class ObsidimancyRecipeProvider extends RecipeProvider {
         saveUpgradeRecipe(base, Ingredient.of(new ItemStack(ENDER_SHARD.get(), 4)), endResult, ENDER_SHARD.get(), consumer);
     }
 
-    private void saveUpgradeRecipe(Item base, Ingredient ingredient, Item result, Item requirementItem, @NotNull Consumer<FinishedRecipe> consumer) {
-        UpgradeRecipeBuilder.smithing(Ingredient.of(base), ingredient, result)
+    private void saveUpgradeRecipe(Item base, Ingredient input, Item result, TagKey<Item> requirementTag, @NotNull Consumer<FinishedRecipe> consumer) {
+        UpgradeRecipeBuilder.smithing(Ingredient.of(base), input, result)
+                .unlocks("has_%s".formatted(requirementTag.location().getPath()), has(requirementTag))
+                .save(consumer, new ResourceLocation(Obsidimancy.MOD_ID, result.getRegistryName().getPath()));
+    }
+
+    private void saveUpgradeRecipe(Item base, Ingredient input, Item result, Item requirementItem, @NotNull Consumer<FinishedRecipe> consumer) {
+        UpgradeRecipeBuilder.smithing(Ingredient.of(base), input, result)
                 .unlocks("has_%s".formatted(requirementItem.getRegistryName().getPath()), has(requirementItem))
                 .save(consumer, new ResourceLocation(Obsidimancy.MOD_ID, result.getRegistryName().getPath()));
     }

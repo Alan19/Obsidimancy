@@ -6,7 +6,7 @@
   ],
   "key": {
     "S": {
-      "item": "obsidimancy:obsidian_shard"
+      "tag": "obsidimancy:obsidian_shards"
     },
     "W": {
       "tag": "minecraft:wool"

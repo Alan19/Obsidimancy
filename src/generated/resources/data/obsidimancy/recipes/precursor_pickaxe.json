@@ -4,7 +4,7 @@
     "item": "minecraft:iron_pickaxe"
   },
   "addition": {
-    "item": "obsidimancy:obsidian_shard"
+    "tag": "obsidimancy:obsidian_shards"
   },
   "result": {
     "item": "obsidimancy:precursor_pickaxe"

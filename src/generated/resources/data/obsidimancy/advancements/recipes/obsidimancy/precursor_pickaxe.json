@@ -6,14 +6,12 @@
     ]
   },
   "criteria": {
-    "has_obsidian_shard": {
+    "has_obsidian_shards": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "obsidimancy:obsidian_shard"
-            ]
+            "tag": "obsidimancy:obsidian_shards"
           }
         ]
       }
@@ -27,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_obsidian_shard",
+      "has_obsidian_shards",
       "has_the_recipe"
     ]
   ]

@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "obsidimancy:obsidian_shard"
-            ]
+            "tag": "obsidimancy:obsidian_shards"
           }
         ]
       }

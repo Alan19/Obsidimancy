@@ -24,18 +24,21 @@ public class ObsidianShardsModifier extends LootModifier {
     private final Item itemReward;
     private final int minBonusPerLevelOfFortune;
     private final int maxBonusPerLevelOfFortune;
+    private final int upperLimit;
 
     /**
      * Constructs a LootModifier.
-     *  @param conditionsIn the ILootConditions that need to be matched before the loot is modified.
-     * @param minCount The minimum number of items to drop
-     * @param maxCount The maximum number of items to drop
-     * @param itemToCheck The item to replace when the loot table is rolled
-     * @param itemReward The item to replace the checked item with
+     *
+     * @param conditionsIn              the ILootConditions that need to be matched before the loot is modified.
+     * @param minCount                  The minimum number of items to drop
+     * @param maxCount                  The maximum number of items to drop
+     * @param itemToCheck               The item to replace when the loot table is rolled
+     * @param itemReward                The item to replace the checked item with
      * @param minBonusPerLevelOfFortune The minimum amount of the reward item to drop
      * @param maxBonusPerLevelOfFortune The maximum amount of the reward item to drop
+     * @param upperLimit                The upper limit of the amount of items to drop
      */
-    public ObsidianShardsModifier(LootItemCondition[] conditionsIn, int minCount, int maxCount, Item itemToCheck, Item itemReward, int minBonusPerLevelOfFortune, int maxBonusPerLevelOfFortune) {
+    public ObsidianShardsModifier(LootItemCondition[] conditionsIn, int minCount, int maxCount, Item itemToCheck, Item itemReward, int minBonusPerLevelOfFortune, int maxBonusPerLevelOfFortune, int upperLimit) {
         super(conditionsIn);
         this.minCount = minCount;
         this.maxCount = maxCount;
@@ -43,6 +46,7 @@ public class ObsidianShardsModifier extends LootModifier {
         this.itemReward = itemReward;
         this.minBonusPerLevelOfFortune = minBonusPerLevelOfFortune;
         this.maxBonusPerLevelOfFortune = maxBonusPerLevelOfFortune;
+        this.upperLimit = upperLimit;
     }
 
     /**
@@ -56,7 +60,7 @@ public class ObsidianShardsModifier extends LootModifier {
     protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
         generatedLoot.removeIf(itemStack -> itemStack.getItem() == itemToCheck);
         final ItemStack baseReward = SetItemCountFunction.setCount(UniformGenerator.between(minCount, maxCount)).build().apply(new ItemStack(itemReward), context);
-        final ItemStack modifiedReward = LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(minBonusPerLevelOfFortune, maxBonusPerLevelOfFortune)).build().apply(baseReward, context);
+        final ItemStack modifiedReward = LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(minBonusPerLevelOfFortune, maxBonusPerLevelOfFortune)).setLimit(upperLimit).build().apply(baseReward, context);
         generatedLoot.add(modifiedReward);
         return generatedLoot;
     }
@@ -70,7 +74,8 @@ public class ObsidianShardsModifier extends LootModifier {
             Item obsidianShardItem = ForgeRegistries.ITEMS.getValue(new ResourceLocation(GsonHelper.getAsString(object, "obsidianShardItem")));
             int minFortuneBonus = GsonHelper.getAsInt(object, "minFortuneBonus");
             int maxFortuneBonus = GsonHelper.getAsInt(object, "maxFortuneBonus");
-            return new ObsidianShardsModifier(ailootcondition, minCount, maxCount, obsidianItem, obsidianShardItem, minFortuneBonus, maxFortuneBonus);
+            int upperLimit = GsonHelper.getAsInt(object, "upperLimit");
+            return new ObsidianShardsModifier(ailootcondition, minCount, maxCount, obsidianItem, obsidianShardItem, minFortuneBonus, maxFortuneBonus, upperLimit);
         }
 
         @Override
@@ -82,6 +87,7 @@ public class ObsidianShardsModifier extends LootModifier {
             json.addProperty("obsidianShardItem", ForgeRegistries.ITEMS.getKey(instance.itemReward).toString());
             json.addProperty("minFortuneBonus", instance.minBonusPerLevelOfFortune);
             json.addProperty("maxFortuneBonus", instance.maxBonusPerLevelOfFortune);
+            json.addProperty("upperLimit", instance.upperLimit);
             return json;
         }
     }

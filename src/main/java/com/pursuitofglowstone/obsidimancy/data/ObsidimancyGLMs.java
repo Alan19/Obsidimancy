@@ -28,7 +28,7 @@ public class ObsidimancyGLMs extends GlobalLootModifierProvider {
         add("obsidian", ObsidimancyLootModifiers.OBSIDIAN_SHARDS.get(), new ObsidianShardsModifier(new LootItemCondition[]{
                 MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(ObsidimancyEnchantments.SHATTERING.get(), MinMaxBounds.Ints.ANY))).build(),
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.OBSIDIAN).build()
-        }, 2, 4, Items.OBSIDIAN, ObsidimancyItems.OBSIDIAN_SHARD.get(), 0, 1));
+        }, 2, 4, Items.OBSIDIAN, ObsidimancyItems.OBSIDIAN_SHARD.get(), 0, 1, 4));
 
         add("nether_pickaxe_auto_smelt", ObsidimancyLootModifiers.SMELTING.get(), new AutoSmeltModifier(
                 new LootItemCondition[]{MatchTool.toolMatches(ItemPredicate.Builder.item().of(ObsidimancyItems.NETHER_PRECURSOR_PICKAXE.get())).build()})
