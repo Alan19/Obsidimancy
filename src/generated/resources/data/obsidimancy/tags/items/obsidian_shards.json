@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "obsidimancy:obsidian_shard",
+    "obsidimancy:overworld_shard",
+    "obsidimancy:nether_shard",
+    "obsidimancy:ender_shard"
+  ]
+}

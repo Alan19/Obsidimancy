@@ -17,6 +17,11 @@ public class ShatteringEnchantment extends Enchantment {
     }
 
     @Override
+    public boolean isTreasureOnly() {
+        return true;
+    }
+
+    @Override
     public boolean canEnchant(ItemStack pStack) {
         return pStack.getItem() instanceof PickaxeItem && super.canEnchant(pStack);
     }

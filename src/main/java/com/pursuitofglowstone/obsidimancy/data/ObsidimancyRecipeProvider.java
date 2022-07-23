@@ -3,10 +3,7 @@ package com.pursuitofglowstone.obsidimancy.data;
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
 import com.pursuitofglowstone.obsidimancy.tags.ObsidimancyTags;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.UpgradeRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -36,6 +33,15 @@ public class ObsidimancyRecipeProvider extends RecipeProvider {
                 .pattern("WSW")
                 .unlockedBy("has_obsidian_shard", has(ObsidimancyTags.OBSIDIAN_SHARDS))
                 .save(consumer, new ResourceLocation(Obsidimancy.MOD_ID, "skydivers_hood"));
+        ShapedRecipeBuilder.shaped(FRAGILE_OBSIDIAN.get())
+                .define('S', OBSIDIAN_SHARD.get())
+                .pattern("SS")
+                .pattern("SS")
+                .unlockedBy("has_obsidian_shard", has(ObsidimancyTags.OBSIDIAN_SHARDS))
+                .save(consumer, new ResourceLocation(Obsidimancy.MOD_ID, "fragile_obsidian"));
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(FRAGILE_OBSIDIAN.get()), Items.OBSIDIAN, 0, 200)
+                .unlockedBy("has_obsidian_shard", has(ObsidimancyTags.OBSIDIAN_SHARDS))
+                .save(consumer, "smelt_fragile_obsidian");
     }
 
     private void saveUpgradeGroup(@NotNull Consumer<FinishedRecipe> consumer, Item base, Item overworldResult, Item netherResult, Item endResult) {
