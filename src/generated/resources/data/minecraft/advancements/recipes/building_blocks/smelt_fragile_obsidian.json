@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:smelt_fragile_obsidian"
+    ]
+  },
+  "criteria": {
+    "has_obsidian_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "obsidimancy:obsidian_shards"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:smelt_fragile_obsidian"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_obsidian_shard",
+      "has_the_recipe"
+    ]
+  ]
+}

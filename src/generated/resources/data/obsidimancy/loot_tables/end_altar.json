@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 4.0,
+        "max": 18.0
+      },
+      "bonus_rolls": {
+        "type": "minecraft:uniform",
+        "min": 1.0,
+        "max": 4.0
+      },
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "weight": 50,
+          "quality": -2,
+          "name": "obsidimancy:common_end_loot"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 5,
+          "quality": -1,
+          "name": "obsidimancy:uncommon_end_loot"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 0,
+          "quality": 10,
+          "name": "obsidimancy:rare_end_loot"
+        }
+      ]
+    }
+  ]
+}

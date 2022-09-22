@@ -13,9 +13,11 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ObsidimancyItemModels extends ItemModelProvider {
     private final ResourceLocation generatedItem = mcLoc("item/generated");
+    private final ExistingFileHelper existingFileHelper;
 
     public ObsidimancyItemModels(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper) {
         super(generator, modid, existingFileHelper);
+        this.existingFileHelper = existingFileHelper;
     }
 
     @Override
@@ -26,7 +28,7 @@ public class ObsidimancyItemModels extends ItemModelProvider {
         forItem(ObsidimancyItems.ENDER_SHARD);
         forItem(ObsidimancyItems.PRECURSOR_PICKAXE);
         forItem(ObsidimancyItems.SKYDIVERS_HOOD);
-        forBlockItem(ObsidimancyItems.ATTUNEMENT_ALTAR);
+        getBuilder(ObsidimancyItems.ATTUNEMENT_ALTAR.getId().getPath()).parent(new ModelFile.ExistingModelFile(modLoc("block/attunement_altar_top"), existingFileHelper));
         forBlockItem(ObsidimancyItems.FRAGILE_OBSIDIAN);
     }
 

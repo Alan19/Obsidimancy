@@ -25,7 +25,7 @@ public class ObsidimancyLootTables extends LootTableProvider {
     @Override
     @Nonnull
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
-        return List.of(Pair.of(ObsidimancyBlockLootTables::new, LootContextParamSets.BLOCK));
+        return List.of(Pair.of(ObsidimancyBlockLootTables::new, LootContextParamSets.BLOCK), Pair.of(ObsidimancyChestLoot::new, LootContextParamSets.CHEST));
     }
 
     @Override

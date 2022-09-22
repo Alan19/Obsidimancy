@@ -27,7 +27,6 @@ public class EnglishLocalization extends LanguageProvider {
     private void addItems() {
         add(ObsidimancyItems.TAB_OBSIDIMANCY, "Obsidimancy");
         add(ObsidimancyItems.FRAGILE_OBSIDIAN.get(), "Fragile Obsidian");
-        add(ObsidimancyItems.ATTUNEMENT_ALTAR.get(), "Attunement Altar");
         add(ObsidimancyItems.OBSIDIAN_SHARD.get(), "Obsidian Shard");
         add(ObsidimancyItems.OVERWORLD_SHARD.get(), "Overworld Shard");
         add(ObsidimancyItems.NETHER_SHARD.get(), "Nether Shard");
