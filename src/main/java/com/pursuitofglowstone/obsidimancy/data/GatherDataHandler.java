@@ -22,5 +22,6 @@ public class GatherDataHandler {
         generator.addProvider(new ObsidimancyGLMs(generator));
         generator.addProvider(new ObsidimancyRecipeProvider(generator));
         generator.addProvider(new ObsidimancyBlockModels(generator, existingFileHelper));
+        generator.addProvider(new ObsidimancyBiomeTags(generator, existingFileHelper));
     }
 }

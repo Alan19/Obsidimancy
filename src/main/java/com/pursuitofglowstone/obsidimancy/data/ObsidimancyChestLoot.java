@@ -1,11 +1,11 @@
 package com.pursuitofglowstone.obsidimancy.data;
 
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
+import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
 import net.minecraft.data.loot.ChestLoot;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -13,8 +13,6 @@ import net.minecraft.world.level.storage.loot.entries.LootTableReference;
 import net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction;
 import net.minecraft.world.level.storage.loot.functions.EnchantWithLevelsFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import net.minecraft.world.level.storage.loot.providers.number.NumberProviders;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.function.BiConsumer;
@@ -22,7 +20,18 @@ import java.util.function.BiConsumer;
 public class ObsidimancyChestLoot extends ChestLoot {
     @Override
     public void accept(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
-        consumer.accept(new ResourceLocation(Obsidimancy.MOD_ID, "common_end_loot"), LootTable.lootTable().withPool(LootPool.lootPool()
+        consumer.accept(new ResourceLocation(Obsidimancy.MOD_ID, "chests/common_overworld_loot"), LootTable.lootTable().withPool(LootPool.lootPool()
+                .setRolls(UniformGenerator.between(1, 3))
+                .setBonusRolls(UniformGenerator.between(1, 3))
+                .add(LootItem.lootTableItem(ObsidimancyItems.OBSIDIAN_SHARD.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))))
+                .add(LootItem.lootTableItem(ObsidimancyItems.FRAGILE_OBSIDIAN.get()))));
+        consumer.accept(new ResourceLocation(Obsidimancy.MOD_ID, "chests/uncommon_overworld_loot"), LootTable.lootTable().withPool(LootPool.lootPool()
+                .setRolls(UniformGenerator.between(1, 3))
+                .setBonusRolls(UniformGenerator.between(1, 3))
+                .add(LootItem.lootTableItem(ObsidimancyItems.NETHER_SHARD.get()))
+                .add(LootItem.lootTableItem(ObsidimancyItems.ENDER_SHARD.get()))
+                .add(LootItem.lootTableItem(ObsidimancyItems.OVERWORLD_SHARD.get()))));
+        consumer.accept(new ResourceLocation(Obsidimancy.MOD_ID, "chests/common_end_loot"), LootTable.lootTable().withPool(LootPool.lootPool()
                 .add(LootItem.lootTableItem(Blocks.BLUE_ICE).setWeight(1))
                 .add(LootItem.lootTableItem(Blocks.SNOW_BLOCK).setWeight(4))
                 .add(LootItem.lootTableItem(Items.POTATO).setWeight(10).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 7.0F))))
@@ -33,7 +42,7 @@ public class ObsidimancyChestLoot extends ChestLoot {
                 .add(LootItem.lootTableItem(Items.EMERALD).setWeight(1).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))
                 .add(LootItem.lootTableItem(Items.SNOWBALL).setWeight(10).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 7.0F))))
                 .add(LootItem.lootTableItem(Items.COAL).setWeight(5).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))));
-        consumer.accept(new ResourceLocation(Obsidimancy.MOD_ID, "uncommon_end_loot"), LootTable.lootTable().withPool(LootPool.lootPool()
+        consumer.accept(new ResourceLocation(Obsidimancy.MOD_ID, "chests/uncommon_end_loot"), LootTable.lootTable().withPool(LootPool.lootPool()
                 .add(LootItem.lootTableItem(Items.OBSIDIAN).setWeight(40).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))
                 .add(LootItem.lootTableItem(Items.FLINT).setWeight(40).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))
                 .add(LootItem.lootTableItem(Items.IRON_NUGGET).setWeight(40).apply(SetItemCountFunction.setCount(UniformGenerator.between(9.0F, 18.0F))))
@@ -58,7 +67,7 @@ public class ObsidimancyChestLoot extends ChestLoot {
                 .add(LootItem.lootTableItem(Items.BELL).setWeight(1))
                 .add(LootItem.lootTableItem(Items.ENCHANTED_GOLDEN_APPLE).setWeight(1))
                 .add(LootItem.lootTableItem(Items.GOLD_BLOCK).setWeight(1).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))));
-        consumer.accept(new ResourceLocation(Obsidimancy.MOD_ID, "rare_end_loot"), LootTable.lootTable().withPool(LootPool.lootPool()
+        consumer.accept(new ResourceLocation(Obsidimancy.MOD_ID, "chests/rare_end_loot"), LootTable.lootTable().withPool(LootPool.lootPool()
                 .add(LootItem.lootTableItem(Items.DIAMOND).setWeight(5).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 7.0F))))
                 .add(LootItem.lootTableItem(Items.IRON_INGOT).setWeight(10).apply(SetItemCountFunction.setCount(UniformGenerator.between(4.0F, 8.0F))))
                 .add(LootItem.lootTableItem(Items.GOLD_INGOT).setWeight(15).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 7.0F))))
@@ -80,10 +89,14 @@ public class ObsidimancyChestLoot extends ChestLoot {
                 .add(LootItem.lootTableItem(Items.IRON_HELMET).setWeight(3).apply(EnchantWithLevelsFunction.enchantWithLevels(UniformGenerator.between(20.0F, 39.0F)).allowTreasure()))
                 .add(LootItem.lootTableItem(Items.IRON_PICKAXE).setWeight(3).apply(EnchantWithLevelsFunction.enchantWithLevels(UniformGenerator.between(20.0F, 39.0F)).allowTreasure()))
                 .add(LootItem.lootTableItem(Items.IRON_SHOVEL).setWeight(3).apply(EnchantWithLevelsFunction.enchantWithLevels(UniformGenerator.between(20.0F, 39.0F)).allowTreasure()))));
-        consumer.accept(new ResourceLocation(Obsidimancy.MOD_ID, "end_altar"), LootTable.lootTable()
+        consumer.accept(new ResourceLocation(Obsidimancy.MOD_ID, "chests/end_altar"), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(4, 18)).setBonusRolls(UniformGenerator.between(1, 4))
-                        .add(LootTableReference.lootTableReference(new ResourceLocation(Obsidimancy.MOD_ID, "common_end_loot")).setWeight(50).setQuality(-2))
-                        .add(LootTableReference.lootTableReference(new ResourceLocation(Obsidimancy.MOD_ID, "uncommon_end_loot")).setWeight(5).setQuality(-1))
-                        .add(LootTableReference.lootTableReference(new ResourceLocation(Obsidimancy.MOD_ID, "rare_end_loot")).setWeight(0).setQuality(10))));
+                        .add(LootTableReference.lootTableReference(new ResourceLocation(Obsidimancy.MOD_ID, "chests/common_end_loot")).setWeight(50).setQuality(-2))
+                        .add(LootTableReference.lootTableReference(new ResourceLocation(Obsidimancy.MOD_ID, "chests/uncommon_end_loot")).setWeight(5).setQuality(-1))
+                        .add(LootTableReference.lootTableReference(new ResourceLocation(Obsidimancy.MOD_ID, "chests/rare_end_loot")).setWeight(0).setQuality(10))));
+        consumer.accept(new ResourceLocation(Obsidimancy.MOD_ID, "chests/altar_ruins"), LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1, 4)).setBonusRolls(UniformGenerator.between(1, 3))
+                        .add(LootTableReference.lootTableReference(new ResourceLocation(Obsidimancy.MOD_ID, "chests/common_overworld_loot")).setWeight(50).setQuality(-2))
+                        .add(LootTableReference.lootTableReference(new ResourceLocation(Obsidimancy.MOD_ID, "chests/uncommon_overworld_loot")).setWeight(5).setQuality(-1))));
     }
 }

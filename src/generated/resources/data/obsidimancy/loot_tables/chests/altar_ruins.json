@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1.0,
+        "max": 4.0
+      },
+      "bonus_rolls": {
+        "type": "minecraft:uniform",
+        "min": 1.0,
+        "max": 3.0
+      },
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "weight": 50,
+          "quality": -2,
+          "name": "obsidimancy:chests/common_overworld_loot"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 5,
+          "quality": -1,
+          "name": "obsidimancy:chests/uncommon_overworld_loot"
+        }
+      ]
+    }
+  ]
+}
