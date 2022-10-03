@@ -4,10 +4,13 @@ import com.pursuitofglowstone.obsidimancy.blocks.ObsidimancyBlocks;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
 import com.pursuitofglowstone.obsidimancy.items.enchantment.ObsidimancyEnchantments;
 import com.pursuitofglowstone.obsidimancy.loot.ObsidimancyLootModifiers;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +28,7 @@ public class Obsidimancy
 
     public Obsidimancy() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::registerCurios);
-
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setRenderTypes);
         MinecraftForge.EVENT_BUS.register(this);
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -38,6 +41,10 @@ public class Obsidimancy
     private void registerCurios(final InterModEnqueueEvent event) {
         InterModComms.sendTo(CuriosApi.MODID, SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("body").build());
         InterModComms.sendTo(CuriosApi.MODID, SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("charm").build());
+    }
+
+    private void setRenderTypes(final FMLClientSetupEvent event) {
+        ItemBlockRenderTypes.setRenderLayer(ObsidimancyBlocks.ATTUNEMENT_ALTAR.get(), RenderType.cutoutMipped());
     }
 
 }

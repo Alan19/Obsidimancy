@@ -43,7 +43,7 @@ public class AttunementAltar extends Block {
     public static final String OVERWORLD_ATTUNE_PROGRESS = "OverworldAttuneProgress";
 
     public AttunementAltar() {
-        super(Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(5.0F, 1200.0F));
+        super(Properties.of(Material.STONE).requiresCorrectToolForDrops().noOcclusion().strength(5.0F, 1200.0F));
     }
 
     /**
