@@ -22,7 +22,7 @@ public class ObsidimancyBlockLootTables extends BlockLoot {
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
                         .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
                         .apply(LimitCount.limitCount(IntRange.range(0, 4))))));
-        dropSelf(ObsidimancyBlocks.ATTUNEMENT_ALTAR.get());
+        add(ObsidimancyBlocks.ATTUNEMENT_ALTAR.get(), noDrop());
     }
 
     @Override

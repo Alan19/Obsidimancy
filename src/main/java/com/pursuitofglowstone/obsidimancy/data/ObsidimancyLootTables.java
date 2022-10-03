@@ -18,8 +18,8 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ObsidimancyLootTables extends LootTableProvider {
-    public ObsidimancyLootTables(DataGenerator p_i50789_1_) {
-        super(p_i50789_1_);
+    public ObsidimancyLootTables(DataGenerator generator) {
+        super(generator);
     }
 
     @Override
