@@ -1,10 +1,10 @@
 {
   "variants": {
-    "half=upper": {
-      "model": "obsidimancy:block/attunement_altar_top"
-    },
     "half=lower": {
       "model": "obsidimancy:block/attunement_altar_bottom"
+    },
+    "half=upper": {
+      "model": "obsidimancy:block/attunement_altar_top"
     }
   }
 }

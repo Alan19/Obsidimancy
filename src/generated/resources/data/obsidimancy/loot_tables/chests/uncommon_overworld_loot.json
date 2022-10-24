@@ -2,15 +2,10 @@
   "type": "minecraft:chest",
   "pools": [
     {
-      "rolls": {
-        "type": "minecraft:uniform",
-        "min": 1.0,
-        "max": 3.0
-      },
       "bonus_rolls": {
         "type": "minecraft:uniform",
-        "min": 1.0,
-        "max": 3.0
+        "max": 3.0,
+        "min": 1.0
       },
       "entries": [
         {
@@ -25,7 +20,12 @@
           "type": "minecraft:item",
           "name": "obsidimancy:overworld_shard"
         }
-      ]
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 3.0,
+        "min": 1.0
+      }
     }
   ]
 }

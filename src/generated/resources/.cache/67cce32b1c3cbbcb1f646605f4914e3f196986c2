@@ -1,0 +1,10 @@
+// 1.19.2	2022-10-23T22:34:46.8326721	LootTables
+1d4929d7d6176f60e5ea991a577527ed251ef375 data/obsidimancy/loot_tables/blocks/attunement_altar.json
+ea168571db5d07fb95d4e765675418bfcca790a0 data/obsidimancy/loot_tables/blocks/fragile_obsidian.json
+bef68a5f75477a72528da53cb476bb42a38f8906 data/obsidimancy/loot_tables/chests/altar_ruins.json
+3088435d018bca6c76b0ea36336a513e62b79ff9 data/obsidimancy/loot_tables/chests/common_end_loot.json
+e082e4606ebc8784fa9379c02d07e6b12feb570f data/obsidimancy/loot_tables/chests/common_overworld_loot.json
+f9feb91aeb14b6a72cdf09100c46a5149e59f82c data/obsidimancy/loot_tables/chests/end_altar.json
+ceecf2636bb5e8e2b43a9dff929fe4fbb09272bc data/obsidimancy/loot_tables/chests/rare_end_loot.json
+5f007f36ae3dd91fd837e0e9ab377199281ef726 data/obsidimancy/loot_tables/chests/uncommon_end_loot.json
+2b76169a5cec71faf737afe5d9e4f2b0dca242f9 data/obsidimancy/loot_tables/chests/uncommon_overworld_loot.json

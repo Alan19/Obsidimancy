@@ -18,6 +18,6 @@ public class EnderSkydiversHood extends AbstractSkydiversHood {
 
     @Override
     public void onFallDamage(LivingHurtEvent event) {
-        event.getEntityLiving().getCapability(ObsidimancyCapabilities.CRITICAL_BOOST_CAPABILITY).ifPresent(criticalBoost -> criticalBoost.setBonusCriticalDamage(event.getAmount() / 20));
+        event.getEntity().getCapability(ObsidimancyCapabilities.CRITICAL_BOOST_CAPABILITY).ifPresent(criticalBoost -> criticalBoost.setBonusCriticalDamage(event.getAmount() / 20));
     }
 }

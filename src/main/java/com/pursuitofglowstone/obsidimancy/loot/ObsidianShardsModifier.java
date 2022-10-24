@@ -1,29 +1,39 @@
 package com.pursuitofglowstone.obsidimancy.loot;
 
-import com.google.gson.JsonObject;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
+import com.google.common.base.Suppliers;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
+import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
-import java.util.List;
+import java.util.function.Supplier;
 
 public class ObsidianShardsModifier extends LootModifier {
+    public static final Supplier<Codec<ObsidianShardsModifier>> CODEC = Suppliers.memoize(() -> RecordCodecBuilder.create(instance -> codecStart(instance)
+            .and(Codec.INT.fieldOf("min").forGetter(ObsidianShardsModifier::getMinCount))
+            .and(Codec.INT.fieldOf("max").forGetter(ObsidianShardsModifier::getMaxCount))
+            .and(ForgeRegistries.ITEMS.getCodec().fieldOf("item").forGetter(ObsidianShardsModifier::getItemToCheck))
+            .and(ForgeRegistries.ITEMS.getCodec().fieldOf("result").forGetter(ObsidianShardsModifier::getItemReward))
+            .and(Codec.INT.fieldOf("bonusMultiplier").forGetter(ObsidianShardsModifier::getLootingMultiplier))
+            .and(Codec.INT.fieldOf("limitMax").forGetter(ObsidianShardsModifier::getUpperLimit))
+            .apply(instance, ObsidianShardsModifier::new)));
+
     private final int minCount;
     private final int maxCount;
     private final Item itemToCheck;
     private final Item itemReward;
-    private final int minBonusPerLevelOfFortune;
-    private final int maxBonusPerLevelOfFortune;
+    private final int lootingMultiplier;
     private final int upperLimit;
 
     /**
@@ -34,61 +44,61 @@ public class ObsidianShardsModifier extends LootModifier {
      * @param maxCount                  The maximum number of items to drop
      * @param itemToCheck               The item to replace when the loot table is rolled
      * @param itemReward                The item to replace the checked item with
-     * @param minBonusPerLevelOfFortune The minimum amount of the reward item to drop
-     * @param maxBonusPerLevelOfFortune The maximum amount of the reward item to drop
+     * @param lootingMultiplier The maximum amount of the reward item to drop
      * @param upperLimit                The upper limit of the amount of items to drop
      */
-    public ObsidianShardsModifier(LootItemCondition[] conditionsIn, int minCount, int maxCount, Item itemToCheck, Item itemReward, int minBonusPerLevelOfFortune, int maxBonusPerLevelOfFortune, int upperLimit) {
+    public ObsidianShardsModifier(LootItemCondition[] conditionsIn, int minCount, int maxCount, Item itemToCheck, Item itemReward, int lootingMultiplier, int upperLimit) {
         super(conditionsIn);
         this.minCount = minCount;
         this.maxCount = maxCount;
         this.itemToCheck = itemToCheck;
         this.itemReward = itemReward;
-        this.minBonusPerLevelOfFortune = minBonusPerLevelOfFortune;
-        this.maxBonusPerLevelOfFortune = maxBonusPerLevelOfFortune;
+        this.lootingMultiplier = lootingMultiplier;
         this.upperLimit = upperLimit;
+    }
+
+    public int getMinCount() {
+        return minCount;
+    }
+
+    public int getMaxCount() {
+        return maxCount;
+    }
+
+    public Item getItemToCheck() {
+        return itemToCheck;
+    }
+
+    public Item getItemReward() {
+        return itemReward;
+    }
+
+    public int getLootingMultiplier() {
+        return lootingMultiplier;
+    }
+
+    public int getUpperLimit() {
+        return upperLimit;
     }
 
     /**
      * Removes the checked item from the generated loot, and then add a random amount of the reward item to the loot
+     *
      * @param generatedLoot The list of items that is dropped as loot
-     * @param context The loot context, to get the looting level
+     * @param context       The loot context, to get the looting level
      * @return The modified loot list
      */
-    @Nonnull
     @Override
-    protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
+    protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
         generatedLoot.removeIf(itemStack -> itemStack.getItem() == itemToCheck);
         final ItemStack baseReward = SetItemCountFunction.setCount(UniformGenerator.between(minCount, maxCount)).build().apply(new ItemStack(itemReward), context);
-        final ItemStack modifiedReward = LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(minBonusPerLevelOfFortune, maxBonusPerLevelOfFortune)).setLimit(upperLimit).build().apply(baseReward, context);
+        final ItemStack modifiedReward = LootingEnchantFunction.lootingMultiplier(ConstantValue.exactly(lootingMultiplier)).setLimit(upperLimit).build().apply(baseReward, context);
         generatedLoot.add(modifiedReward);
         return generatedLoot;
     }
 
-    public static class Serializer extends GlobalLootModifierSerializer<ObsidianShardsModifier> {
-        @Override
-        public ObsidianShardsModifier read(ResourceLocation location, JsonObject object, LootItemCondition[] ailootcondition) {
-            int minCount = GsonHelper.getAsInt(object, "minCount");
-            int maxCount = GsonHelper.getAsInt(object, "maxCount");
-            Item obsidianItem = ForgeRegistries.ITEMS.getValue(new ResourceLocation((GsonHelper.getAsString(object, "obsidianItem"))));
-            Item obsidianShardItem = ForgeRegistries.ITEMS.getValue(new ResourceLocation(GsonHelper.getAsString(object, "obsidianShardItem")));
-            int minFortuneBonus = GsonHelper.getAsInt(object, "minFortuneBonus");
-            int maxFortuneBonus = GsonHelper.getAsInt(object, "maxFortuneBonus");
-            int upperLimit = GsonHelper.getAsInt(object, "upperLimit");
-            return new ObsidianShardsModifier(ailootcondition, minCount, maxCount, obsidianItem, obsidianShardItem, minFortuneBonus, maxFortuneBonus, upperLimit);
-        }
-
-        @Override
-        public JsonObject write(ObsidianShardsModifier instance) {
-            JsonObject json = makeConditions(instance.conditions);
-            json.addProperty("minCount", instance.minCount);
-            json.addProperty("maxCount", instance.maxCount);
-            json.addProperty("obsidianItem", ForgeRegistries.ITEMS.getKey(instance.itemToCheck).toString());
-            json.addProperty("obsidianShardItem", ForgeRegistries.ITEMS.getKey(instance.itemReward).toString());
-            json.addProperty("minFortuneBonus", instance.minBonusPerLevelOfFortune);
-            json.addProperty("maxFortuneBonus", instance.maxBonusPerLevelOfFortune);
-            json.addProperty("upperLimit", instance.upperLimit);
-            return json;
-        }
+    @Override
+    public Codec<? extends IGlobalLootModifier> codec() {
+        return CODEC.get();
     }
 }

@@ -3,7 +3,7 @@ package com.pursuitofglowstone.obsidimancy.data;
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
 import net.minecraft.advancements.DisplayInfo;
 import net.minecraft.advancements.FrameType;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
@@ -54,6 +54,6 @@ public class DisplayBuilder {
     }
 
     public DisplayInfo build() {
-        return new DisplayInfo(displayItem, new TranslatableComponent(Obsidimancy.MOD_ID + ".advancement." + advancementName + ".name"), new TranslatableComponent(Obsidimancy.MOD_ID + ".advancement." + advancementName + ".desc"), background, frameType, showToast, announceToChat, hidden);
+        return new DisplayInfo(displayItem, Component.translatable(Obsidimancy.MOD_ID + ".advancement." + advancementName + ".name"), Component.translatable(Obsidimancy.MOD_ID + ".advancement." + advancementName + ".desc"), background, frameType, showToast, announceToChat, hidden);
     }
 }

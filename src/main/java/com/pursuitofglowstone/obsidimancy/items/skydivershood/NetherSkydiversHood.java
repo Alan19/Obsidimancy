@@ -19,9 +19,9 @@ public class NetherSkydiversHood extends AbstractSkydiversHood {
     @Override
     public void onFallDamage(LivingHurtEvent event) {
         if (event.getSource().isFall()) {
-            event.getEntityLiving().clearFire();
-            event.getEntityLiving().removeEffect(MobEffects.WITHER);
-            event.getEntityLiving().removeEffect(MobEffects.POISON);
+            event.getEntity().clearFire();
+            event.getEntity().removeEffect(MobEffects.WITHER);
+            event.getEntity().removeEffect(MobEffects.POISON);
         }
     }
 

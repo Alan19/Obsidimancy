@@ -28,6 +28,11 @@ public abstract class AbstractPrecursorPickaxe extends PickaxeItem implements II
     }
 
     @Override
+    public int getEnchantmentLevel(ItemStack stack, Enchantment enchantment) {
+        return super.getEnchantmentLevel(stack, enchantment) + getEnchantments().getOrDefault(enchantment, 0);
+    }
+
+    @Override
     public Map<Enchantment, Integer> getEnchantments() {
         Map<Enchantment, Integer> enchantments = new HashMap<>();
         enchantments.put(Enchantments.UNBREAKING, getUnbreaking());

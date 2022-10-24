@@ -1,7 +1,6 @@
 package com.pursuitofglowstone.obsidimancy.items;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public interface IInherentlyEnchantedItem {
             }
         });
         if (!enchanted) {
-            components.add(new TranslatableComponent("obsidimancy.inherent_enchantment").setStyle(ObsidimancyItems.INHERENT_ENCHANT_STYLE));
+            components.add(Component.translatable("obsidimancy.inherent_enchantment").setStyle(ObsidimancyItems.INHERENT_ENCHANT_STYLE));
         }
         return components;
     }

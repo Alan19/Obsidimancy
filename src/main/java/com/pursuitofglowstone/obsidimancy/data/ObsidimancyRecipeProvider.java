@@ -11,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
@@ -53,13 +54,13 @@ public class ObsidimancyRecipeProvider extends RecipeProvider {
     private void saveUpgradeRecipe(Item base, Ingredient input, Item result, TagKey<Item> requirementTag, @NotNull Consumer<FinishedRecipe> consumer) {
         UpgradeRecipeBuilder.smithing(Ingredient.of(base), input, result)
                 .unlocks("has_%s".formatted(requirementTag.location().getPath()), has(requirementTag))
-                .save(consumer, new ResourceLocation(Obsidimancy.MOD_ID, result.getRegistryName().getPath()));
+                .save(consumer, new ResourceLocation(Obsidimancy.MOD_ID, ForgeRegistries.ITEMS.getKey(result).getPath()));
     }
 
     private void saveUpgradeRecipe(Item base, Ingredient input, Item result, Item requirementItem, @NotNull Consumer<FinishedRecipe> consumer) {
         UpgradeRecipeBuilder.smithing(Ingredient.of(base), input, result)
-                .unlocks("has_%s".formatted(requirementItem.getRegistryName().getPath()), has(requirementItem))
-                .save(consumer, new ResourceLocation(Obsidimancy.MOD_ID, result.getRegistryName().getPath()));
+                .unlocks("has_%s".formatted(ForgeRegistries.ITEMS.getKey(requirementItem).getPath()), has(requirementItem))
+                .save(consumer, new ResourceLocation(Obsidimancy.MOD_ID, ForgeRegistries.ITEMS.getKey(result).getPath()));
     }
 
 }

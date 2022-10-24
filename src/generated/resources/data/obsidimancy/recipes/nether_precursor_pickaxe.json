@@ -1,10 +1,10 @@
 {
   "type": "minecraft:smithing",
-  "base": {
-    "item": "obsidimancy:precursor_pickaxe"
-  },
   "addition": {
     "item": "obsidimancy:nether_shard"
+  },
+  "base": {
+    "item": "obsidimancy:precursor_pickaxe"
   },
   "result": {
     "item": "obsidimancy:nether_precursor_pickaxe"

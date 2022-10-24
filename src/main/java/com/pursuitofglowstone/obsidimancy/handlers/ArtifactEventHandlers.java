@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.Mod;
 public class ArtifactEventHandlers {
     @SubscribeEvent
     public static void onFallDamage(LivingHurtEvent event) {
-        final LivingEntity entityLiving = event.getEntityLiving();
+        final LivingEntity entityLiving = event.getEntity();
         for (ItemStack itemStack : entityLiving.getArmorSlots()) {
             if (itemStack.getItem() instanceof AbstractSkydiversHood hood) {
                 hood.onFallDamage(event);
@@ -27,7 +27,7 @@ public class ArtifactEventHandlers {
 
     @SubscribeEvent
     public static void harvestObsidian(PlayerEvent.HarvestCheck event) {
-        final int shatteringLevel = EnchantmentHelper.getEnchantmentLevel(ObsidimancyEnchantments.SHATTERING.get(), event.getPlayer());
+        final int shatteringLevel = EnchantmentHelper.getEnchantmentLevel(ObsidimancyEnchantments.SHATTERING.get(), event.getEntity());
         if (shatteringLevel > 0 || event.getTargetBlock().getBlock() == Blocks.OBSIDIAN) {
             event.setCanHarvest(true);
         }
@@ -35,7 +35,7 @@ public class ArtifactEventHandlers {
 
     @SubscribeEvent
     public static void harvestObsidianSpeed(PlayerEvent.BreakSpeed event) {
-        final int shatteringLevel = EnchantmentHelper.getEnchantmentLevel(ObsidimancyEnchantments.SHATTERING.get(), event.getPlayer());
+        final int shatteringLevel = EnchantmentHelper.getEnchantmentLevel(ObsidimancyEnchantments.SHATTERING.get(), event.getEntity());
         if (shatteringLevel > 0 || event.getState().getBlock() == Blocks.OBSIDIAN) {
             event.setNewSpeed(event.getNewSpeed() * (shatteringLevel + 1));
         }
@@ -43,7 +43,7 @@ public class ArtifactEventHandlers {
 
     @SubscribeEvent
     public static void onCriticalHit(CriticalHitEvent event) {
-        event.getEntityLiving().getCapability(ObsidimancyCapabilities.CRITICAL_BOOST_CAPABILITY).ifPresent(criticalBoost -> {
+        event.getEntity().getCapability(ObsidimancyCapabilities.CRITICAL_BOOST_CAPABILITY).ifPresent(criticalBoost -> {
             if (event.isVanillaCritical()) {
                 event.setDamageModifier(criticalBoost.getBonusCritical() + event.getDamageModifier());
                 criticalBoost.setBonusCriticalDamage(0);

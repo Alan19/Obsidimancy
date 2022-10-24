@@ -1,0 +1,25 @@
+{
+  "type": "obsidimancy:shattering",
+  "bonusMultiplier": 1,
+  "conditions": [
+    {
+      "condition": "minecraft:match_tool",
+      "predicate": {
+        "enchantments": [
+          {
+            "enchantment": "obsidimancy:shattering"
+          }
+        ]
+      }
+    },
+    {
+      "block": "minecraft:obsidian",
+      "condition": "minecraft:block_state_property"
+    }
+  ],
+  "item": "minecraft:obsidian",
+  "limitMax": 4,
+  "max": 4,
+  "min": 2,
+  "result": "obsidimancy:obsidian_shard"
+}

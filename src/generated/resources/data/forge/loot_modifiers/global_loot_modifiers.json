@@ -1,8 +1,7 @@
 {
-  "replace": false,
   "entries": [
-    "obsidimancy:obsidian",
     "obsidimancy:nether_pickaxe_auto_smelt",
-    "obsidimancy:ender_pickaxe_silk_touch"
-  ]
+    "obsidimancy:shatter_obsidian"
+  ],
+  "replace": false
 }

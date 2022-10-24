@@ -1,4 +1,5 @@
 {
+  "type": "obsidimancy:smelting",
   "conditions": [
     {
       "condition": "minecraft:match_tool",
@@ -8,6 +9,5 @@
         ]
       }
     }
-  ],
-  "type": "obsidimancy:smelting"
+  ]
 }

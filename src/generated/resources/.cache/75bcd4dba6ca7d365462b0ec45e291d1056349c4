@@ -1,0 +1,4 @@
+// 1.19.2	2022-10-23T22:34:46.8396546	Tags for minecraft:block
+32e6d108d01c425f5e688f36d284d5baa60eff12 data/minecraft/tags/blocks/mineable/pickaxe.json
+ef090621ed2a56ff57ef09a2a86bd062c9437dfa data/minecraft/tags/blocks/needs_diamond_tool.json
+d419ffd425a887db3e3271d1675f380966c94a50 data/minecraft/tags/blocks/needs_iron_tool.json

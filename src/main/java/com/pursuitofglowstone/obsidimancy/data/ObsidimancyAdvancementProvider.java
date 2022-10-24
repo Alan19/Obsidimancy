@@ -1,10 +1,11 @@
 package com.pursuitofglowstone.obsidimancy.data;
 
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
+import com.pursuitofglowstone.obsidimancy.tags.ObsidimancyTags;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.TickTrigger;
+import net.minecraft.advancements.critereon.PickedUpItemTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.advancements.AdvancementProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -30,7 +31,7 @@ public class ObsidimancyAdvancementProvider extends AdvancementProvider {
                         .announceToChat(false)
                         .background(new ResourceLocation("obsidimancy:textures/block/fragile_obsidian.png"))
                         .build())
-                .addCriterion("tick", new TickTrigger.TriggerInstance(EntityPredicate.Composite.ANY))
+                .addCriterion("tick", InventoryChangeTrigger.TriggerInstance.hasItems(ObsidimancyItems.OBSIDIAN_SHARD.get()))
                 .save(consumer, "obsidimancy:root");
         getObsidianShard = Advancement.Builder.advancement()
                 .display(new DisplayBuilder(ObsidimancyItems.OBSIDIAN_SHARD.get(), "get_obsidian_shard").build())

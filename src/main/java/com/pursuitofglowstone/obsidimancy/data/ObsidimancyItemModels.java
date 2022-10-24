@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ObsidimancyItemModels extends ItemModelProvider {
@@ -37,7 +38,7 @@ public class ObsidimancyItemModels extends ItemModelProvider {
     }
 
     private void forBlockItem(RegistryObject<? extends ItemNameBlockItem> item) {
-        getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(new ResourceLocation(Obsidimancy.MOD_ID, "block/" + item.get().getBlock().getRegistryName().getPath())));
+        getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(new ResourceLocation(Obsidimancy.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(item.get().getBlock()).getPath())));
     }
 
     private void forBlockItem(RegistryObject<? extends ItemNameBlockItem> item, ResourceLocation modelLocation) {
