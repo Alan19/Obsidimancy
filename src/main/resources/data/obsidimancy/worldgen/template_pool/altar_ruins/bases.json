@@ -1,11 +1,11 @@
 {
-  "name": "obsidimancy:altar_ruins/start_pool",
+  "name": "obsidimancy:altar_ruins/bases",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "obsidimancy:altar_ruins/ruin_top",
+        "location": "obsidimancy:altar_ruins/base",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
