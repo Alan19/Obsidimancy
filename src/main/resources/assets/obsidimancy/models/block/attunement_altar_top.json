@@ -3,7 +3,7 @@
 	"texture_size": [128, 128],
 	"textures": {
 		"0": "obsidimancy:block/attunement_altar_top",
-		"particle": "obsidimancy:block/attunement_altar_top"
+		"particle": "obsidimancy:block/attunement_altar_side"
 	},
 	"elements": [
 		{
