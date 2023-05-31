@@ -1,6 +1,9 @@
 {
   "type": "minecraft:jigsaw",
-  "biomes": "#obsidimancy:has_structure/altar_ruins",
+  "biomes": {
+    "type": "forge:not",
+    "value": "#water_on_map_outlines"
+  },
   "spawn_overrides": {},
   "start_pool": "obsidimancy:altar_ruins/start_pool",
   "size": 2,
