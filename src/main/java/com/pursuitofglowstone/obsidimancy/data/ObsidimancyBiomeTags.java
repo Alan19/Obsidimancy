@@ -16,7 +16,5 @@ public class ObsidimancyBiomeTags extends BiomeTagsProvider {
 
     @Override
     protected void addTags() {
-        //noinspection unchecked
-        tag(ObsidimancyTags.HAS_ALTARS).addTags(IS_BADLANDS, IS_HILL, IS_FOREST, IS_JUNGLE, IS_MOUNTAIN, IS_TAIGA);
     }
 }

@@ -1,6 +1,7 @@
 package com.pursuitofglowstone.obsidimancy.items;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 import java.util.ArrayList;
@@ -22,4 +23,7 @@ public interface IInherentlyEnchantedItem {
         }
         return components;
     }
+
+
+
 }

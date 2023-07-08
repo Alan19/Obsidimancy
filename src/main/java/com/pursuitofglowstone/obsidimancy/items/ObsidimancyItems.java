@@ -2,9 +2,9 @@ package com.pursuitofglowstone.obsidimancy.items;
 
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
 import com.pursuitofglowstone.obsidimancy.blocks.ObsidimancyBlocks;
-import com.pursuitofglowstone.obsidimancy.items.precursorpickaxe.EndPrecursorPickaxe;
-import com.pursuitofglowstone.obsidimancy.items.precursorpickaxe.NetherPrecursorPickaxe;
-import com.pursuitofglowstone.obsidimancy.items.precursorpickaxe.OverworldPrecursorPickaxe;
+import com.pursuitofglowstone.obsidimancy.items.precursorpickaxe.end.EndPrecursorPickaxe;
+import com.pursuitofglowstone.obsidimancy.items.precursorpickaxe.nether.NetherPrecursorPickaxe;
+import com.pursuitofglowstone.obsidimancy.items.precursorpickaxe.overworld.OverworldPrecursorPickaxe;
 import com.pursuitofglowstone.obsidimancy.items.precursorpickaxe.PrecursorPickaxe;
 import com.pursuitofglowstone.obsidimancy.items.skydivershood.EnderSkydiversHood;
 import com.pursuitofglowstone.obsidimancy.items.skydivershood.NetherSkydiversHood;
@@ -47,12 +47,49 @@ public class ObsidimancyItems {
     public static final RegistryObject<Item> OVERWORLD_SKYDIVERS_HOOD = ITEMS.register("overworld_skydivers_hood", OverworldSkydiversHood::new);
     public static final RegistryObject<Item> NETHER_SKYDIVERS_HOOD = ITEMS.register("nether_skydivers_hood", NetherSkydiversHood::new);
     public static final RegistryObject<Item> ENDER_SKYDIVERS_HOOD = ITEMS.register("ender_skydivers_hood", EnderSkydiversHood::new);
-    public static final RegistryObject<Item> PRECURSOR_PICKAXE = ITEMS.register("precursor_pickaxe", PrecursorPickaxe::new);
+    public static final RegistryObject<Item> PRECURSOR_PICKAXE = ITEMS.register("precursor_pickaxe", () -> new PrecursorPickaxe(Tiers.IRON,
+            1,
+            -2.8F,
+            new Item.Properties()
+                    .tab(CreativeModeTab.TAB_TOOLS)
+                    .rarity(Rarity.COMMON)));
     public static final RegistryObject<DoubleHighBlockItem> ATTUNEMENT_ALTAR = ITEMS.register("attunement_altar", () -> new DoubleHighBlockItem(ObsidimancyBlocks.ATTUNEMENT_ALTAR.get(), new Item.Properties().tab(TAB_OBSIDIMANCY)));
     public static final RegistryObject<ItemNameBlockItem> FRAGILE_OBSIDIAN = ITEMS.register("fragile_obsidian", () -> generateItemBlock(ObsidimancyBlocks.FRAGILE_OBSIDIAN.get()));
-    public static final RegistryObject<Item> OVERWORLD_PRECURSOR_PICKAXE = ITEMS.register("overworld_precursor_pickaxe", OverworldPrecursorPickaxe::new);
-    public static final RegistryObject<Item> NETHER_PRECURSOR_PICKAXE = ITEMS.register("nether_precursor_pickaxe", NetherPrecursorPickaxe::new);
-    public static final RegistryObject<Item> ENDER_PRECURSOR_PICKAXE = ITEMS.register("ender_precursor_pickaxe", EndPrecursorPickaxe::new);
+    public static final RegistryObject<Item> OVERWORLD_PRECURSOR_PICKAXE = ITEMS.register("overworld_precursor_pickaxe", ObsidimancyItems::createOverworldPrecursorPickaxe);
+    public static final RegistryObject<Item> NETHER_PRECURSOR_PICKAXE = ITEMS.register("nether_precursor_pickaxe", ObsidimancyItems::createNetherPrecursorPickaxe);
+    public static final RegistryObject<Item> ENDER_PRECURSOR_PICKAXE = ITEMS.register("ender_precursor_pickaxe", ObsidimancyItems::createEndPrecursorPickaxe);
+
+    @NotNull
+    private static EndPrecursorPickaxe createEndPrecursorPickaxe() {
+        return new EndPrecursorPickaxe(Tiers.IRON,
+                1,
+                -2.8F,
+                new Item.Properties()
+                        .tab(ObsidimancyItems.TAB_OBSIDIMANCY)
+                        .rarity(Rarity.UNCOMMON));
+    }
+
+    @NotNull
+    private static OverworldPrecursorPickaxe createOverworldPrecursorPickaxe() {
+        return new OverworldPrecursorPickaxe(Tiers.IRON,
+                1,
+                -2.8F,
+                new Item.Properties()
+                        .tab(ObsidimancyItems.TAB_OBSIDIMANCY)
+                        .rarity(Rarity.UNCOMMON));
+    }
+
+    @NotNull
+    private static NetherPrecursorPickaxe createNetherPrecursorPickaxe() {
+        return new NetherPrecursorPickaxe(Tiers.IRON,
+                1,
+                -2.8F,
+                new Item.Properties()
+                        .tab(ObsidimancyItems.TAB_OBSIDIMANCY)
+                        .rarity(Rarity.UNCOMMON)
+                        .durability(300)
+                        .fireResistant());
+    }
 
     @NotNull
     private static Item createStandardItem() {

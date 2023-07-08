@@ -1,9 +1,12 @@
-// 1.19.2	2022-10-23T22:34:46.8406517	Item Models: obsidimancy
+// 1.19.2	2023-07-04T12:08:13.1864151	Item Models: obsidimancy
 58380e937c3215843b6a92872f97c7636527adfc assets/obsidimancy/models/item/attunement_altar.json
+b686f55f1ec6dd37e168a9cbd65dfeba1b5b46b5 assets/obsidimancy/models/item/ender_precursor_pickaxe.json
 6f63ee8c63de3d70e9ab782e7edf4b923779a800 assets/obsidimancy/models/item/ender_shard.json
 15d190afa238e2fb7d3f4212bb1d4dbb377e482d assets/obsidimancy/models/item/fragile_obsidian.json
+07615d596a3e9585598bb2da18de8cc2211c3af3 assets/obsidimancy/models/item/nether_precursor_pickaxe.json
 d377dc78bcfe225eae3fab830065457a7ed0c410 assets/obsidimancy/models/item/nether_shard.json
 d28c2769a9e0ef6cee10071f65aad765a95bcb8c assets/obsidimancy/models/item/obsidian_shard.json
+08074a6e6840d0f92d2b173088889c6bcc482d24 assets/obsidimancy/models/item/overworld_precursor_pickaxe.json
 1ed7143213765a2a7e21452728c93bc783582606 assets/obsidimancy/models/item/overworld_shard.json
 f4a8956427f4c96facc35b0bca030f046b14b32f assets/obsidimancy/models/item/precursor_pickaxe.json
 adeefee531308548dd76fa6ed0a9585270397d34 assets/obsidimancy/models/item/skydivers_hood.json

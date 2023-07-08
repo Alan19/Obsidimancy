@@ -1,4 +1,4 @@
-// 1.19.2	2022-10-23T22:34:46.8346677	Recipes
+// 1.19.2	2023-07-08T17:41:45.5969682	Recipes
 b322c9efeaa3def724291dd55d3990aec74a8414 data/minecraft/advancements/recipes/building_blocks/smelt_fragile_obsidian.json
 1c831ebaf397fa5281ef12190e54d23dbeaafd39 data/minecraft/recipes/smelt_fragile_obsidian.json
 3e031de005414f5892ad61e2dc38bc6c9dcce47e data/obsidimancy/advancements/recipes/obsidimancy/ender_precursor_pickaxe.json
@@ -8,8 +8,8 @@ c135746cd72f5329b5c8ac4a5ff3ecfda4078e86 data/obsidimancy/advancements/recipes/o
 057cb36371b2b7f44d4302a7e3836bb2b95d00b6 data/obsidimancy/advancements/recipes/obsidimancy/nether_skydivers_hood.json
 a8999968c4225a991550efadf4b6ecb7c2cf881e data/obsidimancy/advancements/recipes/obsidimancy/overworld_precursor_pickaxe.json
 d2ea38244514c7b5cee27840e8a2284e73f19859 data/obsidimancy/advancements/recipes/obsidimancy/overworld_skydivers_hood.json
-376c7333b29320c2af09dda9eae1168dacb054c5 data/obsidimancy/advancements/recipes/obsidimancy/precursor_pickaxe.json
 a46d72e9f978f9582d37aa6d7848131eacb743cf data/obsidimancy/advancements/recipes/obsidimancy/skydivers_hood.json
+376c7333b29320c2af09dda9eae1168dacb054c5 data/obsidimancy/advancements/recipes/tools/precursor_pickaxe.json
 6bbfd78bc54d9e528b247dce1bb87877b8483bfb data/obsidimancy/recipes/ender_precursor_pickaxe.json
 1cdaf227a2960c99267f45ec8826bbb4b6632c52 data/obsidimancy/recipes/ender_skydivers_hood.json
 5a3d17aac340c9e52ce28b265825dffaa178b4a0 data/obsidimancy/recipes/fragile_obsidian.json

@@ -1,4 +1,4 @@
-// 1.19.2	2022-10-23T22:41:22.5736542	Global Loot Modifiers : obsidimancy
+// 1.19.2	2023-07-04T12:17:17.1410096	Global Loot Modifiers : obsidimancy
 716b8d5e1b88ab1ee75dca0a21063c8b3fb404fe data/forge/loot_modifiers/global_loot_modifiers.json
 e618c037656682d678f4cdd434c12c47691558eb data/obsidimancy/loot_modifiers/nether_pickaxe_auto_smelt.json
-f571e4c1ce443956254e88998d7ece94cda70861 data/obsidimancy/loot_modifiers/shatter_obsidian.json
+e8cf623beaeb21d6e27c0a8b525d70cfa0a5c014 data/obsidimancy/loot_modifiers/shatter_obsidian.json

@@ -29,6 +29,9 @@ public class ObsidimancyItemModels extends ItemModelProvider {
         forItem(ObsidimancyItems.ENDER_SHARD);
         forItem(ObsidimancyItems.PRECURSOR_PICKAXE);
         forItem(ObsidimancyItems.SKYDIVERS_HOOD);
+        forItem(ObsidimancyItems.OVERWORLD_PRECURSOR_PICKAXE);
+        forItem(ObsidimancyItems.NETHER_PRECURSOR_PICKAXE);
+        forItem(ObsidimancyItems.ENDER_PRECURSOR_PICKAXE);
         getBuilder(ObsidimancyItems.ATTUNEMENT_ALTAR.getId().getPath()).parent(new ModelFile.ExistingModelFile(modLoc("block/attunement_altar_top"), existingFileHelper));
         forBlockItem(ObsidimancyItems.FRAGILE_OBSIDIAN);
     }

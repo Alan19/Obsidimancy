@@ -13,6 +13,19 @@
       }
     },
     {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "enchantments": [
+            {
+              "enchantment": "minecraft:silk_touch"
+            }
+          ]
+        }
+      }
+    },
+    {
       "block": "minecraft:obsidian",
       "condition": "minecraft:block_state_property"
     }
