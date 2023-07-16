@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "obsidimancy:item/ender_precursor_pickaxe"
+    "layer0": "obsidimancy:item/precursor_pickaxe/end/ghostly_pickaxe"
   }
 }

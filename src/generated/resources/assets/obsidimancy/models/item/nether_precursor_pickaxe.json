@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "obsidimancy:item/nether_precursor_pickaxe"
+    "layer0": "obsidimancy:item/precursor_pickaxe/nether/chthonic_pickaxe"
   }
 }

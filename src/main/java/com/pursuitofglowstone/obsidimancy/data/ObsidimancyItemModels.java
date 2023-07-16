@@ -27,13 +27,20 @@ public class ObsidimancyItemModels extends ItemModelProvider {
         forItem(ObsidimancyItems.OVERWORLD_SHARD);
         forItem(ObsidimancyItems.NETHER_SHARD);
         forItem(ObsidimancyItems.ENDER_SHARD);
-        forItem(ObsidimancyItems.PRECURSOR_PICKAXE);
+        forItem(ObsidimancyItems.PRECURSOR_PICKAXE, "precursor_pickaxe/precursor_pickaxe");
         forItem(ObsidimancyItems.SKYDIVERS_HOOD);
-        forItem(ObsidimancyItems.OVERWORLD_PRECURSOR_PICKAXE);
-        forItem(ObsidimancyItems.NETHER_PRECURSOR_PICKAXE);
-        forItem(ObsidimancyItems.ENDER_PRECURSOR_PICKAXE);
+        forItem(ObsidimancyItems.OVERWORLD_SKYDIVERS_HOOD, "skydivers_hood");
+        forItem(ObsidimancyItems.NETHER_SKYDIVERS_HOOD, "skydivers_hood");
+        forItem(ObsidimancyItems.ENDER_SKYDIVERS_HOOD, "skydivers_hood");
+        forItem(ObsidimancyItems.OVERWORLD_PRECURSOR_PICKAXE, "precursor_pickaxe/overworld/ancient_pickaxe");
+        forItem(ObsidimancyItems.NETHER_PRECURSOR_PICKAXE, "precursor_pickaxe/nether/chthonic_pickaxe");
+        forItem(ObsidimancyItems.ENDER_PRECURSOR_PICKAXE, "precursor_pickaxe/end/ghostly_pickaxe");
         getBuilder(ObsidimancyItems.ATTUNEMENT_ALTAR.getId().getPath()).parent(new ModelFile.ExistingModelFile(modLoc("block/attunement_altar_top"), existingFileHelper));
         forBlockItem(ObsidimancyItems.FRAGILE_OBSIDIAN);
+    }
+
+    private void forItem(RegistryObject<? extends Item> item, String pathName) {
+        singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("item/" + pathName));
     }
 
     private void forItem(RegistryObject<? extends Item> item) {
