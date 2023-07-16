@@ -1,3 +1,5 @@
-// 1.19.2	2022-10-23T22:34:46.8356647	Tags for minecraft:item
+// 1.19.2	2023-07-16T18:31:19.2679026	Tags for minecraft:item
+4c6eab24ae8e40d2dc07800cfc56b07c14182f2c data/forge/tags/items/armors/helmets.json
+da342fc683696f0bdc91cdebff685575fabc0fc5 data/forge/tags/items/tools/pickaxes.json
 4a06933d86aef9c9ce4f6e4257e4ce1e6f4cbc59 data/obsidimancy/tags/items/obsidian_shards.json
 4e46cf23bd6a54baece168c4e07decc5f0f73e35 data/obsidimancy/tags/items/precursor_pickaxes.json
