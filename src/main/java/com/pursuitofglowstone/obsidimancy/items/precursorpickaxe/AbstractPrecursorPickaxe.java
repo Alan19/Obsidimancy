@@ -41,7 +41,7 @@ public abstract class AbstractPrecursorPickaxe extends PickaxeItem implements II
     }
 
     @Override
-    public Map<Enchantment, Integer> getAllEnchantments(ItemStack stack) {
+    public final Map<Enchantment, Integer> getAllEnchantments(ItemStack stack) {
         Map<Enchantment, Integer> enchantments = new HashMap<>(super.getAllEnchantments(stack));
         getEnchantments().forEach((enchantment, integer) -> enchantments.compute(enchantment, (enchantment1, integer1) -> integer1 == null ? integer : integer1 + integer));
         return enchantments;

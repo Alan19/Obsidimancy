@@ -10,6 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class ObsidimancyEnchantments {
     public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, Obsidimancy.MOD_ID);
     public static final RegistryObject<Enchantment> SHATTERING = ENCHANTMENTS.register("shattering", ShatteringEnchantment::new);
+    public static final RegistryObject<Enchantment> AUTO_SMELT = ENCHANTMENTS.register("auto_smelting", AutoSmeltEnchantment::new);
 
     public static void register(IEventBus bus) {
         ENCHANTMENTS.register(bus);

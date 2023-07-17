@@ -5,7 +5,6 @@ import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
 import com.pursuitofglowstone.obsidimancy.items.enchantment.ObsidimancyEnchantments;
 import com.pursuitofglowstone.obsidimancy.loot.AutoSmeltModifier;
 import com.pursuitofglowstone.obsidimancy.loot.ObsidianShardsModifier;
-import com.pursuitofglowstone.obsidimancy.loot.ObsidimancyLootModifiers;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
@@ -31,8 +30,6 @@ public class ObsidimancyGLMs extends GlobalLootModifierProvider {
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.OBSIDIAN).build()
         }, 2, 4, Items.OBSIDIAN, ObsidimancyItems.OBSIDIAN_SHARD.get(),  1, 4));
 
-        add("nether_pickaxe_auto_smelt", new AutoSmeltModifier(
-                new LootItemCondition[]{MatchTool.toolMatches(ItemPredicate.Builder.item().of(ObsidimancyItems.NETHER_PRECURSOR_PICKAXE.get())).build()})
-        );
+        add("nether_pickaxe_auto_smelt", new AutoSmeltModifier(new LootItemCondition[]{MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(ObsidimancyEnchantments.AUTO_SMELT.get(), MinMaxBounds.Ints.ANY))).build()}));
     }
 }

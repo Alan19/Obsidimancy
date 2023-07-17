@@ -4,8 +4,10 @@
     {
       "condition": "minecraft:match_tool",
       "predicate": {
-        "items": [
-          "obsidimancy:nether_precursor_pickaxe"
+        "enchantments": [
+          {
+            "enchantment": "obsidimancy:auto_smelting"
+          }
         ]
       }
     }

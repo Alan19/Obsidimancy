@@ -44,5 +44,6 @@ public class EnglishLocalization extends LanguageProvider {
     protected void add(CreativeModeTab key, String name) {
         add("itemGroup.%s".formatted(key.getRecipeFolderName()), name);
         add(ObsidimancyEnchantments.SHATTERING.get(), "Shattering");
+        add(ObsidimancyEnchantments.AUTO_SMELT.get(), "Auto-Smelting");
     }
 }
