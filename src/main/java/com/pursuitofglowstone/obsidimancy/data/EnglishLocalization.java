@@ -16,8 +16,11 @@ public class EnglishLocalization extends LanguageProvider {
     @Override
     protected void addTranslations() {
         addItems();
+        add(ObsidimancyEnchantments.SHATTERING.get(), "Shattering");
+        add(ObsidimancyEnchantments.AUTO_SMELT.get(), "Auto-Smelting");
         add(ObsidimancyBlocks.ATTUNEMENT_ALTAR.get(), "Attunement Altar");
         add(ObsidimancyBlocks.FRAGILE_OBSIDIAN.get(), "Fragile Obsidian");
+        add("obsidimancy.fragile_altar", "The Attunement Altar is rather fragile and will not survive being broken");
         add("obsidimancy.overworld_attunement_message", "Overworld Attunement Progress: %s");
         add("obsidimancy.nether_attunement_message", "Nether Attunement Progress: %s");
         add("obsidimancy.end_attunement_message", "End Attunement Progress: %s");
@@ -43,7 +46,5 @@ public class EnglishLocalization extends LanguageProvider {
 
     protected void add(CreativeModeTab key, String name) {
         add("itemGroup.%s".formatted(key.getRecipeFolderName()), name);
-        add(ObsidimancyEnchantments.SHATTERING.get(), "Shattering");
-        add(ObsidimancyEnchantments.AUTO_SMELT.get(), "Auto-Smelting");
     }
 }

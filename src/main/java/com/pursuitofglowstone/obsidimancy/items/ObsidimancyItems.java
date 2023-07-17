@@ -11,16 +11,20 @@ import com.pursuitofglowstone.obsidimancy.items.skydivershood.NetherSkydiversHoo
 import com.pursuitofglowstone.obsidimancy.items.skydivershood.OverworldSkydiversHood;
 import com.pursuitofglowstone.obsidimancy.items.skydivershood.SkydiversHood;
 import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 
 public class ObsidimancyItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Obsidimancy.MOD_ID);
@@ -33,7 +37,13 @@ public class ObsidimancyItems {
     public static final RegistryObject<Item> OVERWORLD_SKYDIVERS_HOOD = ITEMS.register("overworld_skydivers_hood", OverworldSkydiversHood::new);
     public static final RegistryObject<Item> NETHER_SKYDIVERS_HOOD = ITEMS.register("nether_skydivers_hood", NetherSkydiversHood::new);
     public static final RegistryObject<Item> ENDER_SKYDIVERS_HOOD = ITEMS.register("ender_skydivers_hood", EnderSkydiversHood::new);
-    public static final RegistryObject<DoubleHighBlockItem> ATTUNEMENT_ALTAR = ITEMS.register("attunement_altar", () -> new DoubleHighBlockItem(ObsidimancyBlocks.ATTUNEMENT_ALTAR.get(), new Item.Properties().tab(TAB_OBSIDIMANCY)));
+    public static final RegistryObject<DoubleHighBlockItem> ATTUNEMENT_ALTAR = ITEMS.register("attunement_altar", () -> new DoubleHighBlockItem(ObsidimancyBlocks.ATTUNEMENT_ALTAR.get(), new Item.Properties().tab(TAB_OBSIDIMANCY)) {
+        @Override
+        public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltip, @NotNull TooltipFlag pFlag) {
+            super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
+            pTooltip.add(Component.translatable("obsidimancy.fragile_altar").withStyle(ChatFormatting.ITALIC));
+        }
+    });
     public static final RegistryObject<ItemNameBlockItem> FRAGILE_OBSIDIAN = ITEMS.register("fragile_obsidian", () -> generateItemBlock(ObsidimancyBlocks.FRAGILE_OBSIDIAN.get()));
     public static final RegistryObject<Item> OVERWORLD_PRECURSOR_PICKAXE = ITEMS.register("overworld_precursor_pickaxe", ObsidimancyItems::createOverworldPrecursorPickaxe);
     public static final RegistryObject<Item> NETHER_PRECURSOR_PICKAXE = ITEMS.register("nether_precursor_pickaxe", ObsidimancyItems::createNetherPrecursorPickaxe);
