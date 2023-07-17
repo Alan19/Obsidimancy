@@ -103,7 +103,7 @@ public class AttunementAltar extends Block {
     ).reduce(Shapes::or).get();
 
     public AttunementAltar() {
-        super(Properties.of(Material.STONE).requiresCorrectToolForDrops().noOcclusion().strength(5.0F, 1200.0F));
+        super(Properties.of(Material.STONE).requiresCorrectToolForDrops().noOcclusion().strength(100.0f, 2400.0f));
     }
 
     public static BlockState copyWaterloggedFrom(LevelReader levelReader, BlockPos pos, @NotNull BlockState state) {

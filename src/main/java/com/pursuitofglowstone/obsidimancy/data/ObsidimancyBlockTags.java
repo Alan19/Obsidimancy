@@ -15,6 +15,7 @@ public class ObsidimancyBlockTags extends BlockTagsProvider {
         super(generator, Obsidimancy.MOD_ID, existingFileHelper);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     protected void addTags() {
         tag(BlockTags.NEEDS_IRON_TOOL).add(ObsidimancyBlocks.FRAGILE_OBSIDIAN.get());
