@@ -6,7 +6,7 @@ import com.pursuitofglowstone.obsidimancy.items.skydivershood.AbstractSkydiversH
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.CriticalHitEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -28,7 +28,7 @@ public class ArtifactEventHandlers {
     @SubscribeEvent
     public static void harvestObsidian(PlayerEvent.HarvestCheck event) {
         final int shatteringLevel = EnchantmentHelper.getEnchantmentLevel(ObsidimancyEnchantments.SHATTERING.get(), event.getEntity());
-        if (shatteringLevel > 0 || event.getTargetBlock().getBlock() == Blocks.OBSIDIAN) {
+        if (shatteringLevel > 0 && event.getTargetBlock().is(Tags.Blocks.OBSIDIAN)) {
             event.setCanHarvest(true);
         }
     }
@@ -36,7 +36,7 @@ public class ArtifactEventHandlers {
     @SubscribeEvent
     public static void harvestObsidianSpeed(PlayerEvent.BreakSpeed event) {
         final int shatteringLevel = EnchantmentHelper.getEnchantmentLevel(ObsidimancyEnchantments.SHATTERING.get(), event.getEntity());
-        if (shatteringLevel > 0 || event.getState().getBlock() == Blocks.OBSIDIAN) {
+        if (shatteringLevel > 0 && event.getState().is(Tags.Blocks.OBSIDIAN)) {
             event.setNewSpeed(event.getNewSpeed() * (shatteringLevel + 1));
         }
     }
