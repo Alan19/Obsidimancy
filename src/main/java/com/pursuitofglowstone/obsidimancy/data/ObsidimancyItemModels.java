@@ -2,22 +2,24 @@ package com.pursuitofglowstone.obsidimancy.data;
 
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+
+import java.util.function.Supplier;
 
 public class ObsidimancyItemModels extends ItemModelProvider {
     private final ResourceLocation generatedItem = mcLoc("item/generated");
     private final ExistingFileHelper existingFileHelper;
 
-    public ObsidimancyItemModels(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper) {
-        super(generator, modid, existingFileHelper);
+    public ObsidimancyItemModels(PackOutput packOutput, String modid, ExistingFileHelper existingFileHelper) {
+        super(packOutput, modid, existingFileHelper);
         this.existingFileHelper = existingFileHelper;
     }
 
@@ -35,32 +37,32 @@ public class ObsidimancyItemModels extends ItemModelProvider {
         forItem(ObsidimancyItems.OVERWORLD_PRECURSOR_PICKAXE, "precursor_pickaxe/overworld/ancient_pickaxe");
         forItem(ObsidimancyItems.NETHER_PRECURSOR_PICKAXE, "precursor_pickaxe/nether/chthonic_pickaxe");
         forItem(ObsidimancyItems.ENDER_PRECURSOR_PICKAXE, "precursor_pickaxe/end/ghostly_pickaxe");
-        getBuilder(ObsidimancyItems.ATTUNEMENT_ALTAR.getId().getPath()).parent(new ModelFile.ExistingModelFile(modLoc("block/attunement_altar_top"), existingFileHelper));
+        getBuilder(ObsidimancyItems.ATTUNEMENT_ALTAR.get().getDescriptionId()).parent(new ModelFile.ExistingModelFile(modLoc("block/attunement_altar_top"), existingFileHelper));
         forBlockItem(ObsidimancyItems.FRAGILE_OBSIDIAN);
     }
 
-    private void forItem(RegistryObject<? extends Item> item, String pathName) {
-        singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("item/" + pathName));
+    private void forItem(Supplier<? extends Item> item, String pathName) {
+        singleTexture(item.get().getDescriptionId(), mcLoc("item/handheld"), "layer0", modLoc("item/" + pathName));
     }
 
-    private void forItem(RegistryObject<? extends Item> item) {
-        singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("item/" + item.getId().getPath()));
+    private void forItem(Supplier<? extends Item> item) {
+        singleTexture(item.get().getDescriptionId(), mcLoc("item/handheld"), "layer0", modLoc("item/" + item.get().getDescriptionId()));
     }
 
-    private void forBlockItem(RegistryObject<? extends ItemNameBlockItem> item) {
-        getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(new ResourceLocation(Obsidimancy.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(item.get().getBlock()).getPath())));
+    private void forBlockItem(Supplier<? extends ItemNameBlockItem> item) {
+        getBuilder(item.get().getDescriptionId()).parent(new ModelFile.UncheckedModelFile(new ResourceLocation(Obsidimancy.MOD_ID, "block/" + Registries.BLOCK.getKey(item.get().getBlock()).getPath())));
     }
 
-    private void forBlockItem(RegistryObject<? extends ItemNameBlockItem> item, ResourceLocation modelLocation) {
-        getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(modelLocation));
+    private void forBlockItem(Supplier<? extends ItemNameBlockItem> item, ResourceLocation modelLocation) {
+        getBuilder(item.get().getDescriptionId()).parent(new ModelFile.UncheckedModelFile(modelLocation));
     }
 
-    private void forBlockItemWithParent(RegistryObject<? extends ItemNameBlockItem> item, ResourceLocation modelLocation) {
-        singleTexture(item.getId().getPath(), generatedItem, "layer0", modelLocation);
+    private void forBlockItemWithParent(Supplier<? extends ItemNameBlockItem> item, ResourceLocation modelLocation) {
+        singleTexture(item.get().getDescriptionId(), generatedItem, "layer0", modelLocation);
     }
 
-    private void forBlockItemWithParent(RegistryObject<? extends ItemNameBlockItem> item) {
-        singleTexture(item.getId().getPath(), generatedItem, "layer0", modLoc("block/" + item.getId().getPath()));
+    private void forBlockItemWithParent(Supplier<? extends ItemNameBlockItem> item) {
+        singleTexture(item.get().getDescriptionId(), generatedItem, "layer0", modLoc("block/" + item.get().getDescriptionId()));
     }
 
 }

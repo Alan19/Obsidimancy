@@ -21,12 +21,13 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -103,7 +104,7 @@ public class AttunementAltar extends Block {
     ).reduce(Shapes::or).get();
 
     public AttunementAltar() {
-        super(Properties.of(Material.STONE).requiresCorrectToolForDrops().noOcclusion().strength(100.0f, 2400.0f));
+        super(Properties.of().sound(SoundType.STONE).requiresCorrectToolForDrops().noOcclusion().strength(100.0f, 2400.0f));
     }
 
     public static BlockState copyWaterloggedFrom(LevelReader levelReader, BlockPos pos, @NotNull BlockState state) {
@@ -184,16 +185,16 @@ public class AttunementAltar extends Block {
      * this block
      */
     @Override
-    public void playerWillDestroy(Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, @NotNull Player pPlayer) {
+    public boolean onDestroyedByPlayer(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, boolean willHarvest, FluidState fluid) {
         if (!pLevel.isClientSide) {
             if (pPlayer.isCreative()) {
                 preventCreativeDropFromBottomPart(pLevel, pPos, pState, pPlayer);
             } else {
-                dropResources(pState, pLevel, pPos, (BlockEntity)null, pPlayer, pPlayer.getMainHandItem());
+                dropResources(pState, pLevel, pPos, null, pPlayer, pPlayer.getMainHandItem());
             }
         }
 
-        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+        return super.onDestroyedByPlayer(pState, pLevel, pPos, pPlayer, willHarvest, fluid);
     }
 
     /**
@@ -216,7 +217,7 @@ public class AttunementAltar extends Block {
         final AABB transmuteBounds = AABB.ofSize(new Vec3(pPos.getX(), pPos.getY(), pPos.getZ()), 9, 3, 9);
         for (ItemEntity itemEntity : pLevel.getEntitiesOfClass(ItemEntity.class, transmuteBounds, OBSIDIAN_SHARD)) {
             itemEntity.setExtendedLifetime();
-            itemEntity.setItem(attuneShard(itemEntity.getItem(), pLevel.getBiome(pPos).value().getPrecipitation()));
+            itemEntity.setItem(attuneShard(itemEntity.getItem(), pLevel.getBiome(pPos).value().getPrecipitationAt(pPos)));
             pLevel.sendParticles(ParticleTypes.ENCHANT, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 20, .3D, .3D, .3D, 0D);
             itemEntity.playSound(SoundEvents.ENCHANTMENT_TABLE_USE, 1F, 1F);
         }

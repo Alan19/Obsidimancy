@@ -5,12 +5,13 @@ import com.pursuitofglowstone.obsidimancy.blocks.ObsidimancyBlocks;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
 import com.pursuitofglowstone.obsidimancy.items.enchantment.ObsidimancyEnchantments;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class EnglishLocalization extends LanguageProvider {
-    public EnglishLocalization(DataGenerator gen) {
-        super(gen, Obsidimancy.MOD_ID, "en_us");
+    public EnglishLocalization(PackOutput packOutput) {
+        super(packOutput, Obsidimancy.MOD_ID, "en_us");
     }
 
     @Override
@@ -45,6 +46,6 @@ public class EnglishLocalization extends LanguageProvider {
     }
 
     protected void add(CreativeModeTab key, String name) {
-        add("itemGroup.%s".formatted(key.getRecipeFolderName()), name);
+        add("itemGroup.%s".formatted(key.getBackgroundLocation()), name);
     }
 }

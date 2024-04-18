@@ -75,7 +75,6 @@ public class PhantasmalPrecursorPickaxe extends SpectralPrecursorPickaxe {
         }
     }
 
-    @org.jetbrains.annotations.Nullable
     public static BlockState getAxeStrippingState(BlockState originalState) {
         Block block = AxeItem.STRIPPABLES.get(originalState.getBlock());
         return block != null ? block.defaultBlockState().setValue(RotatedPillarBlock.AXIS, originalState.getValue(RotatedPillarBlock.AXIS)) : null;

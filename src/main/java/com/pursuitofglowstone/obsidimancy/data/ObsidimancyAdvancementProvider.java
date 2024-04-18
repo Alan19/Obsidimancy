@@ -1,15 +1,12 @@
 package com.pursuitofglowstone.obsidimancy.data;
 
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
-import com.pursuitofglowstone.obsidimancy.tags.ObsidimancyTags;
 import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.PickedUpItemTrigger;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.advancements.AdvancementProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.AdvancementProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
@@ -21,6 +18,8 @@ public class ObsidimancyAdvancementProvider extends AdvancementProvider {
     public ObsidimancyAdvancementProvider(DataGenerator generatorIn, ExistingFileHelper fileHelperIn) {
         super(generatorIn, fileHelperIn);
     }
+
+
 
     @Override
     protected void registerAdvancements(@NotNull Consumer<Advancement> consumer, @NotNull ExistingFileHelper fileHelper) {

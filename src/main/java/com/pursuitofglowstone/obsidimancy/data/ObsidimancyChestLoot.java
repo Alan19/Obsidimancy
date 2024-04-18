@@ -2,7 +2,7 @@ package com.pursuitofglowstone.obsidimancy.data;
 
 import com.pursuitofglowstone.obsidimancy.Obsidimancy;
 import com.pursuitofglowstone.obsidimancy.items.ObsidimancyItems;
-import net.minecraft.data.loot.ChestLoot;
+import net.minecraft.data.loot.packs.VanillaChestLoot;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
@@ -17,9 +17,11 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.function.BiConsumer;
 
-public class ObsidimancyChestLoot extends ChestLoot {
+public class ObsidimancyChestLoot extends VanillaChestLoot {
+
+
     @Override
-    public void accept(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
+    public void generate(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
         consumer.accept(new ResourceLocation(Obsidimancy.MOD_ID, "chests/common_overworld_loot"), LootTable.lootTable().withPool(LootPool.lootPool()
                 .setRolls(UniformGenerator.between(1, 3))
                 .setBonusRolls(UniformGenerator.between(1, 3))
